@@ -37,15 +37,15 @@ int main()
     // cout<<cm.size()<<endl;
     // cout<<cm<<endl;
 
-    /*
-    string cm= "Module 05";
-    cm.resize(12, 'B');
-    // the actual lenght of sting is 10 but here i increase the
-    // lenght to 12 and for that its will show null from 11 to 12
-    // to fix it we can add & mentione the chara.It wil print it.
-    cout<<cm.size()<<endl;
-    cout<<cm<<endl;
-    *  /
+    
+    // string cm= "Module 05";
+    // cm.resize(12, 'B');
+    // // the actual lenght of sting is 10 but here i increase the
+    // // lenght to 12 and for that its will show null from 11 to 12
+    // // to fix it we can add & mentione the chara.It wil print it.
+    // cout<<cm.size()<<endl;
+    // cout<<cm<<endl;
+    
 
     return 0;
 }
