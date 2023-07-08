@@ -1,0 +1,1 @@
+{"name":"Local: GetPrefixSum","url":"/home/edu/Phitron/DSA/Exam01/GetPrefixSum.cpp","tests":[{"id":1687537712849,"input":"3\n1000000000 1000000000 1000000000","output":"3000000000 2000000000 1000000000"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/edu/Phitron/DSA/Exam01/GetPrefixSum.cpp","group":"local","local":true}

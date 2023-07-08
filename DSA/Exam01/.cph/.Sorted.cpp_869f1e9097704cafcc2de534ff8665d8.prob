@@ -1,0 +1,1 @@
+{"name":"Local: Sorted","url":"/home/edu/Phitron/DSA/Exam01/Sorted.cpp","tests":[{"id":1687545677028,"input":"3\n5\n2 4 6 7 10\n8\n1 100 101 120 120 121 1000 1000\n4\n100 1 102 12","output":"YES\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/edu/Phitron/DSA/Exam01/Sorted.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: Z_Binary_Search","url":"/home/edu/Phitron/DSA/Module02/Z_Binary_Search.cpp","tests":[{"id":1687435923191,"input":"5 3\n1 5 4 3 2\n5\n3\n6","output":"found\nfound\nnot found"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/edu/Phitron/DSA/Module02/Z_Binary_Search.cpp","group":"local","local":true}

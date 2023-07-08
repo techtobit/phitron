@@ -17,7 +17,8 @@ int main() {
 }
 
 
-Dynamic memory allocation is necessary when we need to allocate and deallocate memory at runtime. It is useful in situations such as:
+// Dynamic memory allocation is necessary when we need to allocate 
+// and deallocate memory at runtime. It is useful in situations such as:
 
 
 #include <iostream>
