@@ -15,34 +15,16 @@ public:
     }
 };
 
-void insert_head(Node *&head, Node* &tail, int val)
+void deleted_at_positons(Node* &head, int pos)
 {
-    Node *newNode = new Node(val);
-    if (newNode == NULL)
+    Node* tmp = head;
+    for(int i = 0; i<pos-1; i++ )
     {
-        head = newNode;
-        tail = newNode;
-        return;
+        tmp = tmp->next;
     }
-    newNode->next = head;
-    head->pre = newNode;
-    head = newNode;
+    cout<< tmp->val <<" ";
 }
 
-
-void insert_at_tail(Node* &head, Node* &tail, int val)
-{
-    Node* newNode = new Node(val);
-    if(tail == NULL || head == NULL)
-    {
-        head = newNode;
-        tail = newNode;
-        return;
-    }
-    tail->next = newNode;
-    newNode->pre = tail;
-    tail = newNode;
-}
 
 int size(Node* head)
 {
@@ -57,28 +39,29 @@ int size(Node* head)
     cout<<endl;
 };
 
-void print_linked_list(Node *head)
-{
-    Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl;
-}
+// void print_linked_list(Node *head)
+// {
+//     Node *tmp = head;
+//     while (tmp != NULL)
+//     {
+//         cout << tmp->val << " ";
+//         tmp = tmp->next;
+//     }
+//     cout << endl;
+// }
 
-void print_reverse(Node* tail)
-{
-    Node* tmp = tail;
-    while(tmp !=NULL)
-    {
-        cout<< tmp->val << " ";
-        tmp = tmp->pre;
-    }
 
-    cout<< endl;
-}
+// void print_reverse(Node* tail)
+// {
+//     Node* tmp = tail;
+//     while(tmp !=NULL)
+//     {
+//         cout<< tmp->val << " ";
+//         tmp = tmp->pre;
+//     }
+
+//     cout<< endl;
+// }
 
 int main()
 {
@@ -95,19 +78,15 @@ int main()
     a->next = b;
     b->pre = a;
 
-    int pos, val;
-    cin >> pos >> val;
+    int pos;
+    cin >> pos;
 
-    if (pos == 0)
+    if(pos >= size(head))
     {
-        insert_head(head,tail,val);
+        deleted_at_positons(head,pos);
     }
-    else if(pos == size(head))
-    {
-        insert_at_tail(head, tail, val);
-    }
-    print_linked_list(head);
-    print_reverse(tail);
+    // print_linked_list(head);
+    // print_reverse(tail);
 
     cout << endl;
     return 0;
