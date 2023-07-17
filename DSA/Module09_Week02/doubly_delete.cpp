@@ -15,15 +15,17 @@ public:
     }
 };
 
-void deleted_at_positons(Node* &head, int pos)
-{
-    Node* tmp = head;
-    for(int i = 0; i<pos-1; i++ )
-    {
-        tmp = tmp->next;
-    }
-    cout<< tmp->val <<" ";
-}
+// void deleted_at_positons(Node* &head, int pos)
+// {
+//     Node* tmp = head;
+//     for(int i = 0; i<pos-1; i++ )
+//     {
+//         tmp = tmp->next;
+//     }
+//     cout<< tmp->val <<" ";
+// }
+
+
 
 
 int size(Node* head)
@@ -83,7 +85,7 @@ int main()
 
     if(pos >= size(head))
     {
-        deleted_at_positons(head,pos);
+        // deleted_at_positons(head,pos);
     }
     // print_linked_list(head);
     // print_reverse(tail);
