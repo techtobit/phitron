@@ -27,7 +27,11 @@ void print_reverse(Node* &head, Node* &tail)
         i = i->next;
         j = j->pre;
     }
-    
+
+    //If input value its positive then it's will
+    //not swap midderl 2 value.That's why have to
+    //call the swap value agian.
+    swap(i->val, j->val);
     
 }
 
