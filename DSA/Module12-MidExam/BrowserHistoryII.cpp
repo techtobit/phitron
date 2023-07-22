@@ -53,20 +53,20 @@ void navigiate_links(Node* head, Node* &curNode,string commandLists)
     }
     else if(commandLists == "next")
     {
-        if(curNode  !=NULL && curNode->next !=NULL)
+        if (curNode != NULL && curNode->next != NULL)
         {
             curNode = curNode->next;
-            cout<< head->val << endl;
+            cout << curNode->val << endl;
         }
         else cout<< "Not Available" << endl;
         
     }
     else if(commandLists == "prev")
     {
-        if(curNode !=NULL && curNode->pre !=NULL)
+        if(curNode != NULL && curNode->pre != NULL)
         {
             curNode = curNode->pre;
-            cout<< curNode->val << endl;
+            cout << curNode->val << endl;
         }
         else cout<< "Not Available" << endl;
     }
