@@ -34,14 +34,28 @@ void insert_at_postion(Node* head, int pos, int val)
 {
     Node* newNode = new Node(val);
     Node* tmp = head;
-    for (int i = 1; i < pos-1; i++)
+    for (int i = 1; i < pos; i++)
     {
         tmp = tmp->next;
     }
     newNode->next = tmp->next;
-    tmp->next = newNode;
     tmp->next->pre = newNode;
+    tmp->next = newNode;
     newNode->pre = tmp;
+}
+
+void insert_at_tail(Node* &head, Node* &tail, int val)
+{
+    Node* newNode = new Node(val);
+    if(tail == NULL || head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        return;
+    }
+    tail->next = newNode;
+    newNode->pre = tail;
+    tail = newNode;
 }
 
 int size(Node* head)
@@ -81,6 +95,7 @@ void print_node_reverse(Node* tail)
     cout<< endl;
 }
 
+
 int main()
 {
     Node* head = NULL;
@@ -101,9 +116,14 @@ int main()
         {
             insert_head(head, tail, val);
         }
+        else if(pos == size(head))
+        {
+            insert_at_tail(head, tail, val);
+            continue;
+        }
         else
         {
-            insert_at_postion(head, pos, val);
+            // insert_at_postion(head, pos, val);
         }
         
         if(head)

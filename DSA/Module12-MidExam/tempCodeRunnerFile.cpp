@@ -1,2 +1,7 @@
-            print_node(head);
-            print_node_reverse(tail);
+        auto it = find(address.begin(), address.end(), commands);
+        if (*it == commands)
+        {
+            cout << *it << endl;
+        }
+        else
+            cout << "Not Available" << endl;
