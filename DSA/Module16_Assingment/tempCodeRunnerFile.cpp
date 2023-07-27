@@ -1,8 +1,7 @@
-        if (valid.size()== 0)
-        {
-            cout << "YES" << endl;
-        }
-        else if(valid.size() > 0)
-        {
-            cout << "NO" << endl;
-        }
+
+        // while (!colors.empty())
+        // {
+        //     cout << colors.top();
+        //     colors.pop();
+        // }
+        // cout << endl;
