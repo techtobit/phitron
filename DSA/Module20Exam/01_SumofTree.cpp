@@ -56,7 +56,6 @@ Node* inputBinaryTree()
 }
 
 int sum = 0;
-
 void levelOrder(Node* root)
 {
     if(root == NULL)
@@ -76,6 +75,7 @@ void levelOrder(Node* root)
         // 02 - Jabotio kaj kora
         // cout << f->val << " ";
         sum += f->val;
+        // cout<<sum;
 
         // 03 - root er childern golo ke raka
         if (f->left)
@@ -90,5 +90,6 @@ int main()
 {
     Node* root =  inputBinaryTree();
     levelOrder(root);
+    cout<<sum;
     return 0;
 }
