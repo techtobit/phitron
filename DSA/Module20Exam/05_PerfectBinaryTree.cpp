@@ -119,7 +119,7 @@ int main()
     int myHeight = countMaxHeight(root);
     cout<<myHeight<<endl;
     int totalNode = pow(2, myHeight)-1;
-    cout<<totalNode<<endl;
+    cout<<totalNode<<endl; 
     if (totalNode == mycount)
     {
         cout<<"YES"<<endl;
