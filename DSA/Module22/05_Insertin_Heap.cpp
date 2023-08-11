@@ -29,9 +29,9 @@ int main()
     // }
 
     // -- take value input -- //
-    vector<int> v;
     int n;
     cin >> n;
+    vector<int> v;
     for (int i = 0; i < n; i++)
     {
         int x;
@@ -41,11 +41,13 @@ int main()
         while (cur_idx != 0)
         {
             int parent_idx = (cur_idx - 1) / 2;
-            if (v[parent_idx < cur_idx]) //max heap
-            // if (v[parent_idx > cur_idx]) //min heap
+            if (v[parent_idx] < v[cur_idx]) // max heap
+                // if (v[parent_idx] > v[cur_idx]) //min heap
                 swap(v[parent_idx], v[cur_idx]);
             else
+            {
                 break;
+            }
             cur_idx = parent_idx;
         }
     }
