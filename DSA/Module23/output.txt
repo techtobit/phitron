@@ -1,1 +1,3 @@
-20
+Abid 80
+Rakib 20
+Sakib 75
