@@ -17,7 +17,7 @@ int main()
     mp["Sakib"] = 75;
     mp["Rakib"] = 20;
     mp["Abid"] = 80;
-        for(auto it=mp.begin(); it !=mp.end(); it++)
+    for(auto it=mp.begin(); it !=mp.end(); it++)
     {
         cout<<it->first<<" "
         <<it->second <<endl;
