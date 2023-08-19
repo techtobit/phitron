@@ -1,66 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node {
-public:
-    int val;
-    Node *right;
-    Node *left;
-
-    Node(int val) {
-        this->val = val;
-        this->right = nullptr;
-        this->left = nullptr;
-    }
-};
-
-Node *input_Binary_Tree() {
-    int val;
-    cin >> val;
-    Node *root = nullptr;
-    if (val != -1)
-        root = new Node(val);
-    else
-        return nullptr;
-
-    queue<Node *> myQueue;
-    myQueue.push(root);
-
-    while (!myQueue.empty()) {
-        Node *parentNode = myQueue.front();
-        myQueue.pop();
-
-        int l, r;
-        cin >> l >> r;
-        if (l != -1) {
-            parentNode->left = new Node(l);
-            myQueue.push(parentNode->left);
-        }
-        if (r != -1) {
-            parentNode->right = new Node(r);
-            myQueue.push(parentNode->right);
-        }
-    }
-    return root;
-}
-
-bool search_node(Node *root, int x) {
-    while (root != nullptr) {
-        if (root->val == x)
-            return true;
-        else if (x < root->val)
-            root = root->left;
+int findDuplicate(vector<int> &nums, int x)
+{
+    int low = 0, high = nums.size() - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (x > nums[mid])
+            low = mid + 1;
+        else if (x == nums[mid])
+            return mid;
         else
-            root = root->right;
+            high = mid - 1;
     }
-    return false;
+    return low;
 }
+int main()
+{
+    int t;
+    cin >> t;
+    vector<int> nums;
+    for (int i = 0; i < t; i++)
+    {
+        int val;
+        cin >> val;
+        nums.push_back(val);
+    }
 
-int main() {
-    Node *root = input_Binary_Tree();
-    if (search_node(root, 6))
-        cout << "YES, Found" << endl;
+    int x;
+    cin >> x;
+
+    int duplicate = findDuplicate(nums, x);
+
+    if (duplicate > 1)
+    {
+        cout << "YES";
+    }
     else
-        cout << "NO, Not Found" << endl;
+    {
+        cout << "NO";
+    }
+
     return 0;
 }

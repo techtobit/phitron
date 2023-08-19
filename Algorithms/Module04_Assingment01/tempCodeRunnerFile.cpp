@@ -1,37 +1,12 @@
-void merge(int l, int r, int mid)
+Node *insertBST(Node *root, int val)
 {
-    int left_size=mid-l +1;
-    int right_size=r-mid;;
+    if (root == NULL)
+        return new Node(val);
 
-    int L[left_size +1];
-    int R[right_size +1];
+    if (val < root->val)
+        root->left = insertBST(root->left, val);
+    else if (val > root->val)
+        root->right = insertBST(root->right, val);
 
-    for(int i=0; i<left_size; i++)
-    {
-        L[i] = nums[l+1];
-    }
-    for (int i = 0; i < right_size; i++)
-    {
-        R[i] = nums[mid+1+i];
-    }
-
-    L[left_size] = INT_MIN;
-    R[right_size] = INT_MIN;
-
-    int lp=0, rp=0;
-
-    for(int i=l; i<=r; i++)
-    {
-        if(L[lp] >= R[rp])
-        {
-            nums[i] = L[lp];
-            lp++;
-        }
-        else
-        {
-            nums[i]=R[rp];
-            rp++;
-        }
-    }
-    
+    return root;
 }
