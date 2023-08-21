@@ -1,5 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+// inputs 
+// 4
+// 5
+// 1 2 8
+// 1 3 9
+// 2 4 11
+// 4 3 17
+// 3 2 15
 const int N = 1e5+5;
 vector<pair<int, int> > adj[N];
 int main()
