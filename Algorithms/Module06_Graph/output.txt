@@ -8,3 +8,24 @@ Vistiting Node:5
 Vistiting Node:6
 Vistiting Node:9
 Vistiting Node:10
+Depth:0 
+Depth:0 
+Depth:1 
+Depth:1 
+Depth:2 
+Depth:2 
+Depth:2 
+Depth:3 
+Depth:3 
+Depth:3 
+New LIne
+Height:0 
+Height:3 
+Height:2 
+Height:2 
+Height:1 
+Height:0 
+Height:1 
+Height:0 
+Height:0 
+Height:0 
