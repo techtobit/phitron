@@ -3,15 +3,18 @@ using namespace std;
 
 const int N = 1e5 + 5;
 vector<int> adj[N];
-int depth[N];
+bool visited[N];
+int depth[N], height[N];
 
-void dfs(int u, int parent) {
-    depth[parent] + 1;
+void dfs(int u) {
 
+    visited[u] = true;
     for (int v : adj[u]) {
-        if (v != parent) {
-            dfs(v, u);
-        }
+        if(visited[v]) continue;
+        depth[v] = depth[v] + 1;
+        dfs(v);
+        if(height[v]+1 > height[u])
+        height[u] = height[v]+1;
     }
 }
 
@@ -26,13 +29,14 @@ int main() {
         adj[v].push_back(u);
     }
 
-    depth[0] = 0; 
-    dfs(1, 0);
+
+    dfs(1);
 
     int targetNode;
     cin >> targetNode;
 
     cout << "Depth of " << targetNode << " = " << depth[targetNode] << endl;
+    cout << "Height of " << targetNode << " = " << height[targetNode] << endl;
 
     return 0;
 }
