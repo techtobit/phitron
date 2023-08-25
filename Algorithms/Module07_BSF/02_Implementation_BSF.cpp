@@ -38,7 +38,6 @@ int main()
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-
     bsf(1);
     cout<<endl;
     for (int i = 1; i <= n; i++)
@@ -47,7 +46,7 @@ int main()
     }
     
 
-
+}
 // inputs 
 // 12
 // 11
