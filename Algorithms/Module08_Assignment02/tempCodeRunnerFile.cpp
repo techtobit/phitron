@@ -1,3 +1,5 @@
-    int n, e; cin>>n>>e;
-    adj[n][e] =1;
-    adj[e][n] =1;
+    sort(ans.begin(), ans.end());
+    for (int v : ans)
+    {
+        cout << v << " ";
+    }
