@@ -1,1 +1,4 @@
-Cycle Detected!
+0 
+2 
+3 
+5 
