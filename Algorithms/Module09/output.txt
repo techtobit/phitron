@@ -1,0 +1,9 @@
+3
+Parent Of 1 : -1
+Parent Of 2 : 1
+Parent Of 3 : 1
+Parent Of 4 : 3
+Parent Of 5 : 2
+Parent Of 6 : 5
+Parent Of 7 : 5
+1 2 5 7 
