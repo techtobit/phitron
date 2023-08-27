@@ -1,4 +1,4 @@
-bool isValid(int i, int j)
-{
-    return (i >= 0 && i < n && j >= 0 && j < m);
-}
+    for(auto p:path)
+    {
+        cout<< p.first <<" "<< p.second;
+    }
