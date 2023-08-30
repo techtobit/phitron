@@ -1,0 +1,4 @@
+Distance of 1: 0
+Distance of 2: -2
+Distance of 3: 3
+Distance of 4: 8
