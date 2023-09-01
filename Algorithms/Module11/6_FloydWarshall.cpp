@@ -41,7 +41,6 @@ int main()
         cin>> u>> v>>w;
         d[u][v] = w;
     }
-
     
     print_matrix();
 
@@ -55,7 +54,6 @@ int main()
             }
         }
     }
-    
     cout<< "After Applying FloyWarshall" <<endl;
     print_matrix();
     
