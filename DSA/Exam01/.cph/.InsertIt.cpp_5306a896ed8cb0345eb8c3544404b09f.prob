@@ -1,0 +1,1 @@
+{"name":"Local: InsertIt","url":"/home/edu/Phitron/DSA/Exam01/InsertIt.cpp","tests":[{"id":1687586105177,"input":"5\n2 3 4 5 6\n3\n10 20 30\n3","output":"2 3 4 10 20 30 5 6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/edu/Phitron/DSA/Exam01/InsertIt.cpp","group":"local","local":true}

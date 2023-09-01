@@ -1,0 +1,1 @@
+{"name":"Local: PrintingX","url":"/home/edu/Phitron/DSA/Exam01/PrintingX.cpp","tests":[{"id":1687588109724,"input":"5","output":"\\   /\n \\ / \n  X  \n / \\ \n/   \\"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/edu/Phitron/DSA/Exam01/PrintingX.cpp","group":"local","local":true}
