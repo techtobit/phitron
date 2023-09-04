@@ -1,2 +1,5 @@
-Depth of 7 = 1
-Height of 7 = 0
+5
+4
+3
+2
+1
