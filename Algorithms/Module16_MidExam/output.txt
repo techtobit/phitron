@@ -1,1 +1,16 @@
-3
+1  - dw - 0 -dw[i]- 0
+YES
+2  - dw - 5 -dw[i]- 3
+YES
+3  - dw - 1 -dw[i]- 2
+NO
+4  - dw - 4 -dw[i]- 4
+YES
+5  - dw - 6 -dw[i]- 5
+YES
+
+Distance of Node 1 : 0
+Distance of Node 2 : 3
+Distance of Node 3 : 2
+Distance of Node 4 : 4
+Distance of Node 5 : 5
