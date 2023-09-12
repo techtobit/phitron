@@ -1,13 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 // input 
-// 6 4
-// 1 2
-// 2 3
+// 5 5
 // 4 5
-// 6 5
-
+// 1 2
+// 2 5
+// 1 4
+// 2 3
 int parent[1000];
 int parentLevl[1000];
 
@@ -62,11 +61,18 @@ int main()
     {
         int a, b;
         cin>> a>> b;
-        dsu_union(a, b);
+        int learderA = dsu_find(a);
+        int learderB = dsu_find(b);
+        if(learderA == learderB)
+        {
+            cout<<"Cycel Dected In Between "
+            << a <<" "<< b<<endl;
+        }
+        else
+        {
+            dsu_union(a,b);
+        }
     }
-
-    cout<< dsu_find(5);
-    
     
     return 0;
 }
