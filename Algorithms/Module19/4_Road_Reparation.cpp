@@ -25,11 +25,13 @@ class cmp
     }
 };
 
-void prims(int s)
+void prims(int s, int n)
 {
     priority_queue<Edge, vector<Edge>, cmp> pq;
     vector<Edge> edgeList;
     pq.push(Edge(s, s, 0));
+    int count = 0;
+
     while(!pq.empty())
     {
         Edge parent = pq.top();
@@ -39,6 +41,7 @@ void prims(int s)
         int w = parent.w;
         if(vis[b]) continue;
         vis[b] = true;
+        count++;
         edgeList.push_back(parent);
         for(int i=0; i<adjList[b].size(); i++)
         {
@@ -52,9 +55,19 @@ void prims(int s)
 
     // remveing extra 1, 1, 0 pair.
     edgeList.erase(edgeList.begin());
+    long long sum =0;
     for(Edge val: edgeList )
     {
-        cout<< val.a<<" "<< val.b <<" "<<val.w<<endl;
+        sum+= (long long)(val.w); // (long long)- converting val.w int val to long val
+    }
+
+    if(count == n)
+    {
+        cout<< sum <<endl;
+    }
+    else
+    {
+        cout<< "IMPOSSIBLE" <<endl;
     }
 }
 
@@ -70,21 +83,18 @@ int main()
         adjList[b].push_back({a, w});
     }
 
-    prims(1);
+    prims(1, n);
     
     return 0;
 }
 
+// pb link 
+// https://cses.fi/problemset/task/1675/
 // input 
-// 8 11
-// 1 5 2
-// 1 2 4
-// 1 4 10
-// 5 4 5
-// 2 4 8
-// 2 3 18
-// 4 3 11
-// 4 8 9
-// 4 7 11
-// 7 6 1
-// 8 6 2
+// 5 6
+// 1 2 3
+// 2 3 5
+// 2 4 2
+// 3 4 8
+// 5 1 7
+// 5 4 4
