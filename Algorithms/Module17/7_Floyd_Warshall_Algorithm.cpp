@@ -1,14 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int INF=1e7;
-// input 
-// 4 6
-// 1 2 3
-// 2 1 2
-// 1 4 5
-// 4 3 2
-// 3 2 1
-// 2 4 4 
 
 int main()
 {   
@@ -80,3 +72,13 @@ int main()
     
     return 0;
 }
+
+
+// input 
+// 4 6
+// 1 2 3
+// 2 1 2
+// 1 4 5
+// 4 3 2
+// 3 2 1
+// 2 4 4 
