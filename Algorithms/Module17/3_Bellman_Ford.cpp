@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int INF = 1e9;
+
+// input
+// 3 3
+// 1 2 2
+// 3 1 -1
+// 2 3 -3
+
 class Edge
 {
 public:
@@ -58,43 +64,9 @@ int main()
         }
     }
 
-    bool cycle = false;
-
-    for (int j = 0; j < v.size(); j++)
+    for (int i = 1; i <= n; i++)
     {
-        Edge ed = v[j];
-        int a = ed.u;
-        int b = ed.v;
-        int w = ed.w;
-
-        if (dis[a] + w < dis[b])
-        {
-            cycle = true;
-            break;
-            dis[b] = dis[a] + w;
-        }
+        cout << i << "  => " << dis[i] << endl;
     }
-
-    int s, t;
-    cin >> s >> t;
-    for (int i = 0; i < t; i++)
-    {
-        int d;
-        cin >> d;
-        if (!cycle)
-        {
-            if (dis[d] == INF)
-                cout << "Not Possible" << endl;
-            else
-                cout << dis[d] << endl;
-        }
-    }
-
-    if(cycle)
-    {
-
-    cout<< "Negative Cycle Detected" <<endl;
-    }
-
     return 0;
 }
