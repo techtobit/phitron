@@ -1,56 +1,59 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+const int N = 1e5 + 5;
 
 int main()
-{   
-    int n;
-    cin>>n;
-    int a[n];
-    for(int i=0; i<n; i++)
+{
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin>> a[i];
-    }
-
-    int s;
-    cin>>s;
-    
-    bool dp[n+1][s+1];
-    // adding 1/true for Zero th ROW & COL;
-    dp[0][0] = true;
-
-    for(int i=1; i<=n; i++)
-    {
-        // after Zero th Row & Col will add False;
-        dp[0][i]=false;
-    }
-
-    for(int i=1; i<=n; i++)
-    {
-        for(int j=0; j<=s; j++)
+        int n, m;
+        cin >> n >> m;
+        int a[n];
+        int sum = 1000 - m;
+        for (int i = 0; i < n; i++)
         {
-            if(a[i-1] <= j)
-            {
-                // bool optA= dp[ i-1] [j-a[i-1]];
-                // bool optB= dp[i-1][j];
-                // dp[i][j] = optA || optB;
+            cin >> a[i];
+        }
 
-                // shortcut 
-                dp[i][j] = dp[i-1][j-a[i-1]] || dp[i-1][j];
-            }
-            else
+        bool dp[n + 1][N];
+        for (int i = 0; i <= n; i++)
+        {
+            for (int j = 0; j <= sum; j++)
             {
-                dp[i][j]= dp[i-1][j];
+                dp[i][j] = false;
             }
         }
-    }
 
-    if(dp[n][s])
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        cout<<"NO"<<endl;
+        for (int i = 0; i <= n; i++)
+        {
+            dp[i][0] = true;
+        }
+
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = 1; j <= sum; j++)
+            {
+                if (a[i - 1] <= j)
+                {
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - a[i - 1]];
+                }
+                else
+                {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+
+        if (dp[n][sum])
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
     }
 
     return 0;
