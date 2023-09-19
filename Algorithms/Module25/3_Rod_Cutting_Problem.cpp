@@ -19,36 +19,31 @@ int unbounded_knapsack(int n, int s, int val[], int w[])
     }
 
 }
-
 int main()
 {   
-    int n, s;
-    cin>> n >>s;
+    int n;
+    cin>>n;
     int val[n], w[n];
-    for(int i=0; i<=n; i++)
+    for (int i = 0; i <n; i++)
     {
-        for(int j=0; j<=s; j++)
+        cin>> val[i];
+        w[i] =i+1;
+    }
+
+    for (int i = 0; i <=n; i++)
+    {
+        for(int j=0; j<=n; j++)
         {
             dp[i][j]=-1;
         }
     }
+    
 
-    for(int i=0; i<n; i++)
-    {
-        cin>>val[i];
-    }
-    for(int i=0; i<n; i++)
-    {
-        cin>>w[i];
-    }
-
-
-    cout<< unbounded_knapsack(n, s, val, w)<<endl;
-
-
+    cout<< unbounded_knapsack(n, n, val, w)<<endl;
+    
     return 0;
 }
-// // input 
-// 4 6
-// 5 3 2 4
-// 4 1 3 2
+
+// input 
+// 8
+// 2 4 4 5 8 10 12 9
