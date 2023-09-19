@@ -28,3 +28,9 @@ int main()
     cout<< lcs(a, a.size(), b, b.size());
     return 0;
 }
+
+/*
+input
+abcdfgr
+acfdgr
+*/
