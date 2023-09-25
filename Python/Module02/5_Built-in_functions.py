@@ -1,0 +1,5 @@
+highest = max(10, 30, 20, 65)
+samllestWithArray = min([29, 34, 56, 78, 92])
+count = len([50, 80])
+total = sum([10, 30, 20, 65])
+print(highest, samllestWithArray, count, total)
