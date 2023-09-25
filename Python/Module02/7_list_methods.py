@@ -6,4 +6,5 @@ if 12 in numbers:
     numbers.remove(12)
 last = numbers.pop(5)
 index = numbers.index(21)
-print(numbers, last, index)
+sorted = numbers.sort()
+print(numbers, last, index, sorted)
