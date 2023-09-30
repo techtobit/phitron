@@ -1,3 +1,5 @@
+
+
 S = input()
 count_L =0
 count_R = 0
