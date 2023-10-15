@@ -37,7 +37,7 @@ class Driver(User):
     def __init__(self, name, email, nid,  current_location) -> None:
         super().__init__(name, email, nid)
         self.current_loaction = current_location
-        self.wallet = 0
+        self.wallet  = 0
 
     def load_cash(self, amount):
         if amount > 0:
