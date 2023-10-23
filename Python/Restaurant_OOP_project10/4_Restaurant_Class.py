@@ -35,4 +35,5 @@ class Restaurant:
     
     def pay_salary(self, employee):
         if employee.salary < self.balance:
+            
             employee.receive_salary()
