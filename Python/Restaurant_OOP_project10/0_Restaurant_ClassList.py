@@ -6,7 +6,7 @@
 ----------------
 Classes
 1. User : base class(ABC)
-2. Custer(User)
+2. Customer(User)
 3. Employee(user)
 4. Chef(Employee)
 5. Server(Employee)
