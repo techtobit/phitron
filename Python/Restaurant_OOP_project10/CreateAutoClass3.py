@@ -50,9 +50,9 @@ class Employee(User):
         self.due =0
 
 
-class Chaf(Employee):
+class Chef(Employee):
     def __init__(self, name, salary, starting_date, department, cooking, phone, email, address) -> None:
-        super().__init__(name, salary, starting_date, department, cooking, phone, email, address)
+        super().__init__(name, salary, starting_date, department, phone, email, address)
         self.cooking = cooking
 
 class Server(Employee):
@@ -68,7 +68,7 @@ class Server(Employee):
     def recive_tips(self, amount):
         pass
     
-class Manger(Employee):
+class Manager(Employee):
     def __init__(self, name, salary, starting_date, department, phone, email, address) -> None:
         super().__init__(name, salary, starting_date, department, phone, email, address)
         
