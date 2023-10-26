@@ -1,6 +1,8 @@
 from MenuClass5 import Pizza, Burger, Drinks, Menu
 from RestaurantClass4 import Restaurant
 from CreateAutoClass3 import Chef, Customer, Server, Manager
+from Orders8 import Order
+
 def main():
     # print('Main fun runing')
     menu = Menu()
@@ -44,6 +46,15 @@ def main():
     #sow employees :
     restaurant.show_employees()
 
+    #customer
+    customer_1 = Customer('Tamin Iqbal', 6, 'iqbal@gamil.com', 'banni', 10000)
+    order_1 = Order(customer_1, [pizza_3, coffe])
+    customer_1.pay_for_order(order_1)
+    restaurant.add_orders(order_1)
+
+
+    restaurant.receive_payment(order_1, 2000, customer_1)
+    print('revenue and balance', restaurant.revenue, restaurant.balance)
 main()
 # if __name__ == '__main__':
 #     main() 
