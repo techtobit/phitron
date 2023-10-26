@@ -44,7 +44,7 @@ def main():
 
 
     #sow employees :
-    restaurant.show_employees()
+    # restaurant.show_employees()
 
     #customer
     customer_1 = Customer('Tamin Iqbal', 6, 'iqbal@gamil.com', 'banni', 10000)
@@ -55,6 +55,11 @@ def main():
 
     restaurant.receive_payment(order_1, 2000, customer_1)
     print('revenue and balance', restaurant.revenue, restaurant.balance)
+
+    # pay rent
+    restaurant.pay_expense(restaurant.rent, 'Rent Paid')
+    print('After Rent', restaurant.revenue, restaurant.balance, restaurant.expense)
+
 main()
 # if __name__ == '__main__':
 #     main() 
