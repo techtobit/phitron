@@ -11,8 +11,9 @@ class Teacher(Person):
     def teach(self):
         pass
     
-    def take_exam(self, students):
+    def evaluate_exam(self):
         marks = random.randint(0, 100)
+        return marks
         # TODO: set marks for the subject for each student
 
 class Student(Person):

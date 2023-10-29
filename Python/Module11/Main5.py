@@ -31,6 +31,7 @@ def main():
     chemisty = Subject('chemisty', chemisty_teacher)
     eight.add_subject(chemisty)
     
+    eight.take_semester_final()
     print(school)
 if __name__ == '__main__':
     main()
