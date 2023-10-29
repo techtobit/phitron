@@ -4,14 +4,14 @@ class Person:
     def __init__(self, name) -> None:
         self.name = name
 class Teacher(Person):
-    def __init__(self, name, subject) -> None:
+    def __init__(self, name) -> None:
         super().__init__(name)
-        self.subject = subject
+        # self.subject = subject
     
     def teach(self):
         pass
     
-    def take_exam(self, subject, students):
+    def take_exam(self, students):
         marks = random.randint(0, 100)
         # TODO: set marks for the subject for each student
 
@@ -20,7 +20,7 @@ class Student(Person):
         super().__init__(name)
             # __id : private attribute. Can't accessed directly from ouside the class
         self.__id = None
-        self.classrome = classroom
+        self.classroom = classroom
         self.subjects=[]
         self.marks={}
         self.grad = None

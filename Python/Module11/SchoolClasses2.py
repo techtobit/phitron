@@ -7,12 +7,6 @@ class School:
         self.classrooms = {}
     def add_classroom(self, classroom):
         self.classrooms[classroom.name] = classroom
-        
-    def __repr__(self) -> str:
-        print('----- ALL CLASSROOMS -------')
-        for key, value in self.classrooms.items():
-            print(key)
-        return ''
     
     def add_teacher(self, subject, teacher):
         # if subject in self.teachers:
@@ -26,6 +20,21 @@ class School:
         else:
             print(f'No Classroom as named{className}')
     
+    def __repr__(self) -> str:
+        print('----- ALL CLASSROOMS -------')
+        for key, value in self.classrooms.items():
+            print(key)
+        print('----- Students -------')
+        eight = self.classrooms['eight']
+        for student in eight.students:
+            print(student.name)
+        print(len(eight.students))
+        print('----- Students -------')
+        for subject in eight.subjects:
+            print(subject.name, subject.teacher.name)
+        
+        return ''
+
 class ClassRoom:
     
     def __init__(self, name) -> None:
@@ -40,6 +49,10 @@ class ClassRoom:
         self.classroom = student.name
         self.students.append(student)
 
+    def add_subject(self, subject):
+        self.subjects.append(subject)
+        
+
     # string method to display data
     def __str__(self) -> str:
         return f'{self.name}-{len(self.students)}'
@@ -47,3 +60,11 @@ class ClassRoom:
     #Todo : sort students by grade
     def get_topstudents(self):
         pass
+
+
+class Subject:
+    def __init__(self, name, teacher) -> None:
+        self.name = name
+        self.teacher = teacher
+        self.max_marks = 100
+        self.pass_marks = 30
