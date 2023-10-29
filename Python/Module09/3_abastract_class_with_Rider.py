@@ -12,7 +12,7 @@ class User(ABC):
 
     @abstractmethod
     def display_profile(self):
-        raise NotADirectoryError
+        raise NotImplementedError
     
 class Rider(User):
     def __init__(self, name, email, nid, current_location) -> None:

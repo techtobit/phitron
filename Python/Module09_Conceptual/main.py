@@ -38,7 +38,8 @@ class Rider(User):
     def ride_request(self, uber, destination):
         if not self.current_ride:
             ob=Ride_Matching(uber.drivers)
-            res = ob.has_driver(self, destination)
+            res = ob.has_driver(self, des
+                                tination)
             print('Ride Found', res)
             self.current_ride = res
 
