@@ -20,6 +20,24 @@ class School:
         else:
             print(f'No Classroom as named{className}')
     
+    @staticmethod
+    def calculate_grade(marks):
+        if 80 <= marks <=100:
+            return 'A+'
+        elif 70<= marks <80:
+            return 'A'
+        elif 60<= marks <70:
+            return 'A-'
+        elif 50<= marks <60:
+            return 'B'
+        elif 40<= marks <50:
+            return 'C'
+        elif 33<= marks <40:
+            return 'D'
+        else:
+            return 'F'
+        
+
     def __repr__(self) -> str:
         print('----- ALL CLASSROOMS -------')
         for key, value in self.classrooms.items():
