@@ -22,3 +22,15 @@ FROM departments
 	LEFT JOIN employees
     ON departments.department_id = employees.department_id
 WHERE employees.department_id IS NULL;
+
+-- Show emp frist_name, salary and how much less ammount
+	-- he got from his dept avg salary?
+
+SELECT 
+	employees.first_name, employees.salary,
+    (SELECT AVG(salary)
+	FROM employees
+	WHERE department_id = departments.department_id) - employees.salary
+FROM employees
+	JOIN departments
+    ON employees.department_id = departments.department_id
