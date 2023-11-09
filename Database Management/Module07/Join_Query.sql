@@ -34,3 +34,12 @@ SELECT
 FROM employees
 	JOIN departments
     ON employees.department_id = departments.department_id
+
+-- Print those dept name where minimum salary is getterthen 5000;
+
+SELECT department_name
+FROM employees
+	JOIN departments
+    ON employees.department_id = departments.department_id
+GROUP BY department_name
+HAVING MIN(salary) > 5000;
