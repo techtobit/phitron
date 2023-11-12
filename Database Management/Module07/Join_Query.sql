@@ -43,3 +43,17 @@ FROM employees
     ON employees.department_id = departments.department_id
 GROUP BY department_name
 HAVING MIN(salary) > 5000;
+
+
+
+-- SET METHODs
+SELECT *
+FROM employees
+WHERE salary > 10000
+-- UNION
+-- UNION ALL
+-- INTERSECT
+MINUS
+SELECT *
+FROM employees
+WHERE department_id=100;
