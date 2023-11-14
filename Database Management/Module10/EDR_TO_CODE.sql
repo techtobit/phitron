@@ -26,3 +26,11 @@ CREATE TABLE Borrow(
     FOREIGN KEY (Borrow_Book_Id) REFERENCES Book(Book_Id),
     PRIMARY KEY(Who_Borrow_Book,Borrow_Book_Id)
 );
+
+CREATE TABLE Permission(
+	Lib_Id VARCHAR(4),
+    Borrow_Book_Id VARCHAR(4),
+    FOREIGN KEY (Lib_Id) REFERENCES Libarion(Lib_Id),
+    FOREIGN KEY (Borrow_Book_Id) REFERENCES Borrow(Borrow_Book_Id),
+    PRIMARY KEY(Lib_Id, Borrow_Book_Id)
+);
