@@ -10,3 +10,8 @@ CREATE TABLE Book(
     Book_Name VARCHAR(50),
     Book_Genra VARCHAR(50)
 );
+
+CREATE TABLE Libarion(
+	Lib_Id VARCHAR(4) PRIMARY KEY,
+    Lib_Name VARCHAR(50)
+);
