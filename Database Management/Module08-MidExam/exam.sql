@@ -10,3 +10,11 @@ CREATE TABLE Departments(
 	dep_id VARCHAR(5) PRIMARY KEY,
     dep_name VARCHAR(50)
 );
+
+
+-- GET 2nd MAX SALARY
+SELECT DISTINCT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1
+OFFSET 1;
