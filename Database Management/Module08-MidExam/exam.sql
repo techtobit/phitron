@@ -18,3 +18,11 @@ FROM employees
 ORDER BY salary DESC
 LIMIT 1
 OFFSET 1;
+
+
+-- AVG salary by department id
+SELECT dep.department_name, AVG(salary) AS avg_salary
+FROM departments dep
+JOIN employees emp
+ON dep.department_id = emp.department_id
+GROUP BY dep.department_name;
