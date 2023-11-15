@@ -33,3 +33,11 @@ FROM employees
 WHERE salary < (
 	SELECT salary FROM employees WHERE employee_id= '100'
 );
+
+
+-- Count the number of employees of each job type
+SELECT dep.department_name, COUNT(*) AS total_employees
+FROM departments dep
+JOIN employees emp
+ON dep.department_id = emp.department_id
+GROUP BY dep.department_name;
