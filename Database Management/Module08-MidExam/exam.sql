@@ -26,3 +26,10 @@ FROM departments dep
 JOIN employees emp
 ON dep.department_id = emp.department_id
 GROUP BY dep.department_name;
+
+-- Min Salary after steven; 
+SELECT first_name, salary
+FROM employees
+WHERE salary < (
+	SELECT salary FROM employees WHERE employee_id= '100'
+);
