@@ -25,3 +25,11 @@ INSERT INTO Student
 VALUE('15', 'Alex', 'Alex@gmail.com', '971..', 'london');
 INSERT INTO Student
 VALUE('10', 'jhon', 'jhon@gmail.com', '995..', 'wash');
+
+
+INSERT INTO Book
+VALUE('20', 'Himu', 'Humayan', 'fictional', 11, 7);
+INSERT INTO Book
+VALUE('25', 'Advance Javascript', 'Junayed', 'CSE', 15, 9);
+INSERT INTO Book
+VALUE('30', 'English Grammar', 'Walk Hary', 'English', 23, 22);
