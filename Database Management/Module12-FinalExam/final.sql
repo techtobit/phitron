@@ -68,3 +68,10 @@ ON b.StudentId = s.StudentId
 GROUP BY s.Name
 ORDER BY TotalBorrow DESC
 LIMIT 1;
+
+-- 2nd lowest salary 
+SELECT DISTINCT salary
+FROM employees
+ORDER BY salary ASC
+LIMIT 1
+OFFSET 1;
