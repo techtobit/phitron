@@ -58,3 +58,13 @@ VALUE('3', '12', '25', '2023-10-12', '2023-11-12', '2023-11-12');
 UPDATE Book
 SET AvailableCopies= AvailableCopies-1
 WHERE ISBN = '20';
+
+
+-- Return  Most borrwing book student name
+SELECT s.Name, COUNT(b.BorrowId) AS TotalBorrow
+FROM Borrowing b
+LEFT JOIN Student s
+ON b.StudentId = s.StudentId
+GROUP BY s.Name
+ORDER BY TotalBorrow DESC
+LIMIT 1;
