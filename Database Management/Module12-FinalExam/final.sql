@@ -52,3 +52,9 @@ INSERT INTO Borrowing
 VALUE('2', '12', '25', '2023-10-12', '2023-11-12', '2023-11-12');
 INSERT INTO Borrowing
 VALUE('3', '12', '25', '2023-10-12', '2023-11-12', '2023-11-12');
+
+
+-- Updateing book in book library
+UPDATE Book
+SET AvailableCopies= AvailableCopies-1
+WHERE ISBN = '20';
