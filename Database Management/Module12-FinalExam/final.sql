@@ -16,3 +16,12 @@ CREATE TABLE Book (
     TotalCopies INT NOT NULL,
     AvailableCopies INT NOT NULL
 );
+
+
+
+INSERT INTO Student
+VALUE('12', 'Xefer', 'xefer@gmail.com', '0175..', 'dhak');
+INSERT INTO Student
+VALUE('15', 'Alex', 'Alex@gmail.com', '971..', 'london');
+INSERT INTO Student
+VALUE('10', 'jhon', 'jhon@gmail.com', '995..', 'wash');
