@@ -1,0 +1,13 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .great_deal{
+        background-color: red;
+    }
+    .deal_img_1{
+        position: relative;
+        top: 20%;
+    }
+    .img_1{
+        position: relative;
+        top: 20%;
+    }
+}
