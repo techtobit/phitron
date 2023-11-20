@@ -1,0 +1,623 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script> 
+    $(function(){
+      $("#includedContent").load("demo.html"); 
+    });
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body
+style="font-family: montserrat;"
+>
+<div class="flex flex-col items-stretch">
+    <div
+      class="items-center bg-violet-950 z-[1] flex w-full flex-col px-5 py-2 max-md:max-w-full"
+    >
+      <div
+        class="flex w-full max-w-[1077px] items-start justify-between gap-3 max-md:max-w-full max-md:flex-wrap max-md:justify-center"
+      >
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/47f886f2-f4f3-4ee5-84fd-ed4b85c2b9d3?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+          class="aspect-square object-contain object-center w-[52px] fill-white fill-opacity-0 overflow-hidden self-center shrink-0 max-w-full my-auto"
+        />
+        <div class="text-white text-2xl font-black leading-6 my-auto">
+          SHOP HERO
+        </div>
+        <div
+          class="items-stretch bg-neutral-100 self-stretch flex justify-between gap-2 pl-4 pr-20 py-4 rounded-lg max-md:pr-5"
+        >
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/a97e90a9-3c05-4a82-9c9e-c8aba80f56e1?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+            class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+          />
+          <div
+            class="text-stone-500 text-sm font-medium leading-5 opacity-50 self-center grow whitespace-nowrap my-auto"
+          >
+            Search
+          </div>
+        </div>
+        <div
+          class="items-stretch self-center flex justify-between gap-5 my-auto max-md:justify-center"
+        >
+          <div class="text-white text-base font-medium leading-5">Home</div>
+          <div class="text-white text-base font-medium leading-5 opacity-30">
+            About
+          </div>
+          <div
+            class="text-white text-base font-medium leading-5 opacity-30 whitespace-nowrap"
+          >
+            Contact Us
+          </div>
+        </div>
+        <div class="justify-between items-stretch self-center flex gap-5 my-auto">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/943f6e23-b57f-4350-90e9-86b27fe6af4f?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+            class="aspect-[0.56] object-contain object-center w-[18px] justify-center items-center overflow-hidden shrink-0 max-w-full"
+          />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f6225a6e-4add-4b13-b5b4-0667f94a03ad?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+            class="aspect-[0.56] object-contain object-center w-[18px] overflow-hidden shrink-0 max-w-full"
+          />
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Hero Section  -->
+    <!-- <div
+      class="bg-slate-200 bg-[url('../resources/heroBg.png')] flex w-full flex-col -mt-2 pl-20 pr-16 py-12 max-md:max-w-full max-md:px-5"
+    > -->
+      <!-- <div
+        class="text-violet-950 text-2xl leading-8 opacity-40 w-[714px] max-w-full ml-28 mt-36 self-start max-md:ml-2.5 max-md:mt-10"
+      >
+        Pro.Beyond.
+      </div>
+      <div
+        class="text-black text-8xl font-[250] leading-[72px] tracking-tighter w-[714px] max-w-full ml-28 mt-6 self-start max-md:text-4xl max-md:leading-8"
+      >
+        <span class="">IPhone</span>
+        <span class="font-semibold">14 Pro</span>
+      </div>
+      <div
+        class="self-stretch flex w-full items-stretch justify-between gap-5 mt-5 max-md:max-w-full max-md:flex-wrap"
+      >
+        <div
+          class="flex items-stretch justify-between gap-5 max-md:max-w-full max-md:flex-wrap"
+        >
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/f7dd9420-fdf6-4c37-9557-56e19285fe74?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+            class="aspect-[0.45] object-contain object-center w-[17px] overflow-hidden shrink-0 max-w-full"
+          />
+          <div
+            class="text-black text-lg leading-6 self-center my-auto max-md:max-w-full"
+          >
+            Created to change everything for the better. For everyone
+          </div>
+        </div>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d26d4393-395d-4dad-90cb-562274e3de8f?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+          class="aspect-[0.47] object-contain object-center w-[18px] overflow-hidden shrink-0 max-w-full"
+        />
+      </div> -->
+      <!-- <div
+        class="text-white text-center text-base font-black leading-6 whitespace-nowrap justify-center items-center border border-[color:var(--main-white,#FFF)] bg-blue-900 w-[200px] max-w-full ml-28 mt-4 mb-32 px-5 py-4 rounded-md border-solid self-start max-md:ml-2.5 max-md:mb-10"
+      >
+        Shop Now
+      </div> -->
+      
+      
+      <div id="includedContent"></div>
+
+    <div class="section-2 grid grid-cols-2 gap-10">
+      <div class="left-data">
+        <div class="ipad9 flex flex-row  w-full h-[272px] items-center">
+          <div class=" w-[605px] h-[100%] overflow-hidden  ">
+            <img src="../resources/ipad.png" 
+            class=" relative top-[10%] right-[20%]"
+            alt="">
+          </div>
+          <div class="ipad-details flex flex-col w-[338px] h-[152px] ">
+            <h3 class="font-medium text-3xl" >iPad 9</h3>
+            <p class="font-light text-sm">Powerful. Easy to use. Versatile. iPad is designed for all the things you love to do. Work, play, create, learn, stay connected, and more. All at an incredible value.</p>
+          </div>
+        </div>
+
+        <div class="ipad9 flex flex-row bg-[#ADC2D7]  w-full h-[272px] items-center">
+          <div class=" w-[605px] h-[100%] overflow-hidden  ">
+            <img src="../resources/hero__gnfk5g59t0qe_xlarge_2x 1.png" 
+            class=" relative bottom-[50%] right-[20%]"
+            alt="">
+          </div>
+          <div class="ipad-details flex flex-col  w-[338px] h-full py-10 px-2 ">
+            <h3 class="font-light text-2xl" >Apple </h3>
+            <h3 class="font-light text-2xl" >AirPods</h3>
+            <h3 class="font-bold text-2xl" >Max</h3>
+            <p class="font-light text-sm">Powerful. Easy to use. Versatile. iPad is designed for all the things you love to do. Work, play, create, learn, stay connected, and more. All at an incredible value.</p>
+          </div>
+        </div>
+      
+      </div>
+
+
+      <div class="right_data">
+        <div class="mackbook pl-5 flex flex-row w-full h-full items-center">
+          <div class="text">
+            <h5 class="text-4xl font-light">Macbook</h5>
+            <h2 class="text-4xl font-bold"> Air</h2>
+            <p class="font-light text-sm pb-4">
+              The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display. And with the 13‑inch model, you have more reasons than ever to choose Air. Supercharged by the M2 chip
+            </p>
+            <button
+            class="text-white text-center text-base font-medium leading-6 whitespace-nowrap  border border-[color:var(--main-white,#FFF)] bg-blue-900 w-[150px] max-w-full  py-2 px-2 rounded-md border-solid self-start max-md:ml-2.5 max-md:mb-10"
+            >
+            Shop Now
+            </button>
+          </div>
+          <div class="img w-[1229px] h-[432px] overflow-hidden flex items-center">
+            <img src="../resources/Group 6.png"
+            class="w-full h-full relative ml-[30%]"
+            alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    
+    <div
+      class="items-center bg-neutral-50 flex w-full flex-col px-5 py-12 max-md:max-w-full"
+    >
+      <div
+        class="flex w-full max-w-[1120px] flex-col items-stretch my-8 max-md:max-w-full"
+      >
+        <div
+          class="justify-between items-stretch flex w-full gap-5 max-md:max-w-full max-md:flex-wrap"
+        >
+          <div
+            class="text-black text-2xl font-medium leading-8 tracking-wide grow shrink basis-auto"
+          >
+            Browse By Category
+          </div>
+          <div class="items-stretch flex justify-between gap-4">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a8785a35-8aa1-4eb5-a625-6d988deb1d1d?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-8 overflow-hidden shrink-0 max-w-full"
+            />
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/aba426d2-38e9-4a5a-803d-c658a9461ac0?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-8 overflow-hidden shrink-0 max-w-full"
+            />
+          </div>
+        </div>
+        <div
+          class="items-stretch content-start flex-wrap flex justify-between gap-5 mt-8 max-md:max-w-full max-md:justify-center"
+        >
+          <div
+            class="justify-center items-center bg-gray-200 flex grow basis-[0%] flex-col px-12 py-6 rounded-2xl max-md:px-5"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/ea514ca7-22df-43c5-9bca-206454b91dfb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-[1.29] object-contain object-center w-[62px] overflow-hidden"
+            />
+            <div
+              class="text-black text-center text-base font-medium leading-6 self-stretch whitespace-nowrap mt-2"
+            >
+              Phones
+            </div>
+          </div>
+          <div
+            class="justify-center items-center bg-gray-200 flex grow basis-[0%] flex-col pl-5 pr-4 py-6 rounded-2xl"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/514b0604-b510-461d-8c5a-6d94ab02057f?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-12 overflow-hidden max-w-full"
+            />
+            <div
+              class="text-black text-center text-base font-medium leading-6 self-stretch whitespace-nowrap mt-2"
+            >
+              Smart Watches
+            </div>
+          </div>
+          <div
+            class="justify-center items-center bg-gray-200 flex grow basis-[0%] flex-col px-11 py-6 rounded-2xl max-md:px-5"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/be7c3616-5a7b-4b5f-a611-b041730099b7?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-12 overflow-hidden max-w-full"
+            />
+            <div
+              class="text-black text-center text-base font-medium leading-6 self-stretch whitespace-nowrap mt-2"
+            >
+              Cameras
+            </div>
+          </div>
+          <div
+            class="justify-center items-center bg-gray-200 flex grow basis-[0%] flex-col px-7 py-6 rounded-2xl max-md:px-5"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/55750364-1680-4a31-ae10-ab0901573c56?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-12 overflow-hidden max-w-full"
+            />
+            <div
+              class="text-black text-center text-base font-medium leading-6 self-stretch whitespace-nowrap mt-2"
+            >
+              Headphones
+            </div>
+          </div>
+          <div
+            class="justify-center items-center bg-gray-200 flex grow basis-[0%] flex-col pl-9 pr-9 py-6 rounded-2xl max-md:px-5"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/524fdc04-5cb7-4084-9139-06729aafa138?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-12 overflow-hidden max-w-full"
+            />
+            <div
+              class="text-black text-center text-base font-medium leading-6 self-stretch whitespace-nowrap mt-2"
+            >
+              Computers
+            </div>
+          </div>
+          <div
+            class="justify-center items-center bg-gray-200 flex grow basis-[0%] flex-col px-12 py-6 rounded-2xl max-md:px-5"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/426ddee2-b694-4fc1-ad96-2f265889fae7?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+              class="aspect-square object-contain object-center w-12 overflow-hidden"
+            />
+            <div
+              class="text-black text-center text-base font-medium leading-6 self-stretch whitespace-nowrap mt-2"
+            >
+              Gaming
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="items-center bg-white z-[1] flex mt-0 w-full flex-col px-5 py-12 max-md:max-w-full"
+    >
+      <div class="flex w-full max-w-[1120px] flex-col my-1.5 max-md:max-w-full">
+        <div
+          class="items-stretch flex w-[430px] max-w-full justify-between gap-5 max-md:flex-wrap max-md:justify-center"
+        >
+          <div
+            class="text-black text-center text-lg font-medium leading-8 whitespace-nowrap justify-center items-stretch grow"
+          >
+            New Arrival
+          </div>
+          <div class="text-zinc-500 text-center text-lg font-medium leading-8">
+            Bestseller
+          </div>
+          <div
+            class="text-zinc-500 text-lg font-medium leading-8 whitespace-nowrap"
+          >
+            Featured Products
+          </div>
+        </div>
+        <div class="content-start self-stretch flex-wrap mt-8 max-md:max-w-full">
+          <div
+            class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0"
+          >
+            <div
+              class="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0"
+            >
+              <div
+                class="content-start flex-wrap grow max-md:max-w-full max-md:mt-4"
+              >
+                <div
+                  class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0"
+                >
+                  <div
+                    class="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0"
+                  >
+                    <div
+                      class="items-center bg-neutral-100 flex grow flex-col w-full mx-auto px-4 py-6 rounded-lg max-md:mt-4"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/acea775a-4bf1-462c-aa0f-3393492b8a6e?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-8 justify-center items-center overflow-hidden max-w-full self-end"
+                      />
+                      <img
+                        loading="lazy"
+                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b27b754c-affe-4c8d-ba3a-a8c15342427a?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-40 overflow-hidden self-center max-w-full mt-4"
+                      />
+                      <div
+                        class="self-stretch text-black text-center text-base font-medium leading-6 mt-4"
+                      >
+                        Apple iPhone 14 Pro Max 128GB Deep Purple (MQ9T3RX/A)
+                      </div>
+                      <div
+                        class="self-stretch text-black text-center text-2xl italic font-bold leading-6 tracking-wider mt-4"
+                      >
+                        $900
+                      </div>
+                      <div
+                        class="text-white text-center text-sm font-medium leading-6 whitespace-nowrap justify-center items-center bg-black self-center w-[193px] max-w-full mt-6 px-5 py-3 rounded-lg"
+                      >
+                        Buy Now
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full max-md:ml-0"
+                  >
+                    <div
+                      class="items-center bg-neutral-100 flex flex-col w-full mx-auto px-4 py-6 rounded-lg max-md:mt-4"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/42026aca-c711-45d7-9eb4-967e246b7beb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-8 justify-center items-center overflow-hidden max-w-full self-end"
+                      />
+                      <img
+                        loading="lazy"
+                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/2180ca4f-fe88-4b34-b364-e6b3d6c3ce47?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-40 overflow-hidden self-center max-w-full mt-4"
+                      />
+                      <div
+                        class="self-stretch text-black text-center text-base font-medium leading-6 mt-4"
+                      >
+                        Blackmagic Pocket Cinema Camera 6k
+                      </div>
+                      <div
+                        class="self-stretch text-black text-center text-2xl italic font-bold leading-6 tracking-wider mt-4"
+                      >
+                        $2535
+                      </div>
+                      <div
+                        class="text-white text-center text-sm font-medium leading-6 whitespace-nowrap justify-center items-center bg-black self-center w-[193px] max-w-full mt-6 px-5 py-3 rounded-lg"
+                      >
+                        Buy Now
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full max-md:ml-0"
+            >
+              <div
+                class="content-start flex-wrap grow max-md:max-w-full max-md:mt-4"
+              >
+                <div
+                  class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0"
+                >
+                  <div
+                    class="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0"
+                  >
+                    <div
+                      class="items-center bg-neutral-100 flex grow flex-col w-full mx-auto px-4 py-6 rounded-lg max-md:mt-4"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/41ad6807-3703-456d-947a-0c068de3d35d?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-8 justify-center items-center overflow-hidden max-w-full self-end"
+                      />
+                      <img
+                        loading="lazy"
+                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/5284d0cd-bcf5-45bb-803a-b9cc80ecadbb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-40 overflow-hidden self-center max-w-full mt-4"
+                      />
+                      <div
+                        class="self-stretch text-black text-center text-base font-medium leading-6 mt-4"
+                      >
+                        Apple Watch Series 9 GPS 41mm Starlight Aluminium Case
+                      </div>
+                      <div
+                        class="self-stretch text-black text-center text-2xl italic font-bold leading-6 tracking-wider mt-4"
+                      >
+                        $399
+                      </div>
+                      <div
+                        class="text-white text-center text-sm font-medium leading-6 whitespace-nowrap justify-center items-center bg-black self-center w-[193px] max-w-full mt-6 px-5 py-3 rounded-lg"
+                      >
+                        Buy Now
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full max-md:ml-0"
+                  >
+                    <div
+                      class="items-center bg-neutral-100 flex flex-col w-full mx-auto px-4 py-6 rounded-lg max-md:mt-4"
+                    >
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e25fe0ac-832a-47c1-b02a-68a262d72b2c?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-8 justify-center items-center overflow-hidden max-w-full self-end"
+                      />
+                      <img
+                        loading="lazy"
+                        srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/2801b597-7b41-41c6-969f-7a34a57faadb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                        class="aspect-square object-contain object-center w-40 overflow-hidden self-center max-w-full mt-4"
+                      />
+                      <div
+                        class="self-stretch text-black text-center text-base font-medium leading-6 mt-4"
+                      >
+                        AirPods Max Silver
+                        <br />
+                      </div>
+                      <div
+                        class="self-stretch text-black text-center text-2xl italic font-bold leading-6 tracking-wider mt-4"
+                      >
+                        $549
+                      </div>
+                      <div
+                        class="text-white text-center text-sm font-medium leading-6 whitespace-nowrap justify-center items-center bg-black self-center w-[193px] max-w-full mt-6 px-5 py-3 rounded-lg"
+                      >
+                        Buy Now
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bg-[#958ad4] z-[1] w-full px-5  max-md:max-w-full">
+      <div class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+        <div class="flex  flex-col items-stretch w-[38%] max-md:w-full max-md:ml-0">
+          <img
+          loading="lazy"
+          srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/f599cf95-8d9c-4fff-9220-59ab2a8628de?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+          class="aspect-[0.82] object-contain object-center ml-[-50%]  overflow-hidden mt-2 max-md:mt-10"
+          />
+        </div>
+        <div
+          class="flex flex-col items-stretch w-[34%] ml-5 max-md:w-full max-md:ml-0"
+        >
+          <div class="flex flex-col items-stretch my-auto max-md:mt-10">
+            <div
+              class="text-white text-center text-7xl font-black leading-[72px] tracking-tighter whitespace-nowrap max-md:text-4xl max-md:leading-10"
+            >
+              <span class="text-violet-950">11.11</span>
+              <span class="text-white">Sale</span>
+            </div>
+            <div class="text-white text-center text-base leading-8 mt-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex relative left-5 flex-col items-stretch w-[38%]  max-md:w-full max-md:ml-0 overflow-hidden"
+        >
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+            class="aspect-[0.82] object-contain object-center w-full overflow-hidden ml-[40%] mt-5 max-md:mt-10"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="justify-center items-center bg-slate-950 flex w-full flex-col px-5 py-12 max-md:max-w-full"
+    >
+      <div
+        class="justify-between content-start gap-y-28 flex-wrap w-full max-w-[1120px] mt-14 mb-8 max-md:max-w-full max-md:mt-10"
+      >
+        <div class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+          <div
+            class="flex flex-col items-stretch w-[22%] max-md:w-full max-md:ml-0"
+          >
+            <div class="flex items-stretch gap-2.5 max-md:mt-10">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/218c8429-9d03-44a2-9157-de97f1cb4f74?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                class="aspect-square object-contain object-center w-[46px] fill-white fill-opacity-0 overflow-hidden shrink-0 max-w-full"
+              />
+              <div
+                class="text-white text-2xl font-black leading-6 self-center grow whitespace-nowrap my-auto"
+              >
+                SHOP HERO
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-stretch w-[17%] ml-5 max-md:w-full max-md:ml-0"
+          >
+            <div
+              class="justify-between items-stretch flex gap-5 max-md:justify-center max-md:mt-10"
+            >
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7d2da8e7-d725-41b8-a64a-a75e6e5193e8?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/f1e80e43-bd87-49de-9595-c53a2782f8e4?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/02350350-e701-4b6f-87f3-dca418c2b00c?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d714045-6961-4c35-bbf7-0adb390464fb?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
+                class="aspect-square object-contain object-center w-4 overflow-hidden shrink-0 max-w-full"
+              />
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0"
+          >
+            <div class="justify-between grow max-md:max-w-full max-md:mt-10">
+              <div
+                class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0"
+              >
+                <div
+                  class="flex flex-col items-stretch w-6/12 max-md:w-full max-md:ml-0"
+                >
+                  <div class="items-stretch flex grow flex-col max-md:mt-8">
+                    <div
+                      class="text-white text-base italic font-[250] leading-4 whitespace-nowrap"
+                    >
+                      Services
+                    </div>
+                    <div class="text-stone-300 text-sm font-light leading-8 mt-2">
+                      Bonus programGift cardsCredit and paymentService
+                      contractsNon-cash accountPayment
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col items-stretch w-6/12 ml-5 max-md:w-full max-md:ml-0"
+                >
+                  <div class="items-stretch flex grow flex-col max-md:mt-8">
+                    <div
+                      class="text-white text-base italic font-[250] leading-4 whitespace-nowrap"
+                    >
+                      Assistance to the buyer
+                    </div>
+                    <div class="text-stone-300 text-sm font-light leading-8 mt-2">
+                      Find an orderTerms of deliveryExchange and return of
+                      goodsGuaranteeFrequently asked questionsTerms of use of
+                      the site
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>
