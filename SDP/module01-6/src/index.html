@@ -2,13 +2,14 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <!-- <meta http-equiv="Refresh" content="2; url=public/index.html" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 
 
@@ -75,7 +76,73 @@
 
 
     <!-- Hero Section  -->
-    <iframe src="demo.html" style="width: 100%; height: 65vh;" frameborder="0"></iframe>
+    <div>
+      <!-- <iframe src="demo.html" style="width: 100%; height: 65vh;" frameborder="0"></iframe> -->
+    </div>
+
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner"
+      style="background-image: url('../resources/heroBg.png');"
+      >
+        <div class="carousel-item active">
+          <div class="car_one flex lg:flex-row sm-flex-col flex-col justify-center lg:gap-20 sm:gap-6">
+            <div class="hero_text flex flex-col lg:items-start items-center justify-content-center lg:pt-0 pt-10">
+              <p class="lg:text-2xl text-xl  lg:font-medium font-light text-[#1E046A]">Pro.Beyond.</p>
+              <p class="lg:text-4xl text-xl font-medium">IPhone 
+                <span class="text-black font-bold">14 Pro</span>
+              </p>
+              <p class="text-sm text-center  font-light pb-2">Created to change everything for the better. For everyone</p>
+              <button
+              class="text-white text-center text-base lg:inline-block hidden font-medium leading-6 whitespace-nowrap  border border-[color:var(--main-white,#FFF)] bg-blue-900 w-[150px] max-w-full  py-2 px-2 rounded-md border-solid self-start max-md:ml-2.5 max-md:mb-10"
+              >
+              Shop Now
+              </button>
+            </div>
+            <div class="div-hero flex justify-center">
+              <img src="../resources/Iphone 14 pro 1-2.png" 
+              class="w-[406px] h-full relative lg:top-[30%] lg:mb-[0%] mb-[-40%]"
+              alt="">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="carousel-item">
+          <div class="car_one flex lg:flex-row sm-flex-col flex-col justify-center lg:gap-20 sm:gap-6">
+            <div class="hero_text flex flex-col lg:items-start items-center justify-content-center lg:pt-0 pt-10">
+              <p class="lg:text-2xl text-xl  lg:font-medium font-light text-[#1E046A]">Pro.Beyond.</p>
+              <p class="lg:text-4xl text-xl font-medium">IPhone 
+                <span class="text-black font-bold">15 Pro Max</span>
+              </p>
+              <p class="text-sm text-center  font-light pb-2">Created to change everything for the better. For everyone</p>
+              <button
+              class="text-white text-center text-base lg:inline-block hidden font-medium leading-6 whitespace-nowrap  border border-[color:var(--main-white,#FFF)] bg-blue-900 w-[150px] max-w-full  py-2 px-2 rounded-md border-solid self-start max-md:ml-2.5 max-md:mb-10"
+              >
+              Shop Now
+              </button>
+            </div>
+            <div class="div-hero flex justify-center">
+              <img src="../resources/Iphone 14 pro 1-2.png" 
+              class="w-[406px] h-full relative lg:top-[30%] lg:mb-[0%] mb-[-40%]"
+              alt="">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+
     <!-- <div  id="carouselExampleControls"></div> --> 
 
     <!-- section 2  -->
@@ -471,7 +538,7 @@
           </div>
         </div>
         <div
-          class="flex relative left-5 flex-col items-stretch w-[100%]  max-md:w-full max-md:ml-0 overflow-hidden"
+          class="flex relative left-[47px] flex-col items-stretch w-[100%]  max-md:w-full max-md:ml-0 overflow-hidden"
         >
         <!-- <img src="../resources/tab.png"
         class=""
@@ -479,7 +546,7 @@
           <img
             loading="lazy"
             srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/24e02f6a-56f0-44b9-ba9d-f7092dbef026?apiKey=8a296cfcf0a049708d6ab91bf2238a1d&"
-            class="aspect-[0.82] object-contain object-center w-full overflow-hidden ml-[40%] mt-5 max-md:mt-10"
+            class="aspect-[0.82] object-contain object-center w-full overflow-hidden ml-[35%] mt-5 max-md:mt-10"
           />
         </div>
       </div>
@@ -487,7 +554,7 @@
 
 
 
-    
+
     <div
       class="justify-center items-center bg-slate-950 flex w-full flex-col px-5 py-12 max-md:max-w-full"
     >
