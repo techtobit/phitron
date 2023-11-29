@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,5 +41,7 @@
     <h3>{{'Happy Codeing. Python is fun' | truncatewords:2}}</h3>
     <h3>{{'Python is fun' | cut:" "}}</h3>
 
+    
+    <img src ="{%static 'images/car1.png' %}" alt = "Car Image 1" />
 </body>
 </html>
