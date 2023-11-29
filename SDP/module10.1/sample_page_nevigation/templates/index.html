@@ -7,15 +7,19 @@
 </head>
 <body>
     <h1>This is home page</h1>
+    <a href="nav/about">About</a>
+    <a href="nav/contact">Contact</a>
+
+    {% comment %} --- Context ---  {% endcomment %}
     <table>
         <tbody>
         <ul>Auther Name : {{authoer}}</ul>
         <ul>Age : {{age}}</ul>
     </tbody>
     </table>
-    <a href="nav/about">About</a>
-    <a href="nav/contact">Contact</a>
 
+
+    {% comment %} --- Advance Context ---  {% endcomment %}
     {% if age >= 20 %}
         <h4>You will get a driving license</h4>
     {% elif age >= 10 and age <= 19 %}
@@ -27,6 +31,14 @@
     {% for i in courses %}
         <h3>{{i.id}} - {{i.name}} - {{i.fee}} </h3>
     {% endfor %}
+
+
+    {% comment %} Data Filtering from context  {% endcomment %}
+    <h3>{{lst | join:" - "}}</h3>
+    <h3>{{birthday | date:"D d M Y"}}</h3>
+    <h3>{{lst | length}}</h3>
+    <h3>{{'Happy Codeing. Python is fun' | truncatewords:2}}</h3>
+    <h3>{{'Python is fun' | cut:" "}}</h3>
 
 </body>
 </html>

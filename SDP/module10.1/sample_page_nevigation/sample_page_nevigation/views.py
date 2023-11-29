@@ -1,7 +1,8 @@
 from django.shortcuts import render
+import datetime
 
 def home(request):
-    d = {'authoer': 'Xefer', 'age': 2, 'lst':['python', 'is', 'best'], 'courses': [
+    d = {'authoer': 'Xefer', 'age': 2, 'lst':['python', 'is', 'best'], 'birthday': datetime.datetime.now(), 'val': '',  'courses': [
         {
             'id':1,
             'name': 'Python',
