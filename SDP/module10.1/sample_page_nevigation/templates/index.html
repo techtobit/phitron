@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 <body>
     <h1>This is home page</h1>
-    <a href="nav/about">About</a>
+    <a href="{% url 'about' %}">About</a>
     <a href="nav/contact">Contact</a>
 
     {% comment %} --- Context ---  {% endcomment %}
@@ -29,9 +30,31 @@
         <h4>You're a child</h4>
     {% endif %}
 
-    {% for i in courses %}
-        <h3>{{i.id}} - {{i.name}} - {{i.fee}} </h3>
-    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                {% for key in courses.0.keys %}
+                <th scope="col">{{ key|title }}</th>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in courses %}
+            <tr>
+                <td>
+                    {{i.id}}
+                </td>
+                <td>
+                    {{i.name}}
+                </td>
+                <td>
+                    {{i.fee}}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
 
 
     {% comment %} Data Filtering from context  {% endcomment %}
@@ -41,7 +64,11 @@
     <h3>{{'Happy Codeing. Python is fun' | truncatewords:2}}</h3>
     <h3>{{'Python is fun' | cut:" "}}</h3>
 
-    
+
+
     <img src ="{%static 'images/car1.png' %}" alt = "Car Image 1" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
