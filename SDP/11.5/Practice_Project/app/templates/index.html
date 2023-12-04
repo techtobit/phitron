@@ -2,17 +2,19 @@
 {% extends "base.html" %} 
 
 {% block content %}
-<div class="main_content">
-    <h1 class="text-center pt-3">App Page</h1>
-    <div class=" d-flex flex-row m-5">
-        {% for meal in meals %}
-        <div class="card meal  d-flex flex-col m-2 p-2" style="width: 10rem">
-            <img src="{{ meal.strMealThumb }}" alt="{{ meal.strMeal }}">
-            <div class="card-body">
-                <p class="card-text">{{ meal.strMeal }}</p>
+
+<div class='content container'>
+    <h1 class='text-center pt-5 text-uppercase fw-bold'>Most popular meals list</h1>
+    <div class='row justify-content-center  p-5' style="gap:20px">
+        {% for meal in meals  %}
+
+        <div class="card " style="width: 18rem;">
+            <img src="{{ meal.strMealThumb}}" class="card-img-top" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">{{meal.strMeal}}</h5>
             </div>
-        {% endfor %}
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %} 
