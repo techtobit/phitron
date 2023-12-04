@@ -3,6 +3,19 @@
 {% block content %}
 
 <div class='content'>
-    <h1>This is meals Page</h1>
+    <h1 class='text-center pt-5'>This is meals Page</h1>
+    <div class='d-flex flex-row p-5'>
+        {% for meal in categories  %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{meal.strCategoryThumb}}" class="card-img-top" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">{{meal.strCategory}}</h5>
+                <p class="card-text">{{meal.strCategoryDescription |  truncatewords:10}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
