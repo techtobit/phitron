@@ -3,15 +3,18 @@
 {% load static %}
 {% block content %}
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="h-25 d-inline-block w-100 " src="{% static "../static/image/lunch.jpg" %}" alt="lunch slide">
-    </div>
-    <div class="carousel-item">
-      <img class="h-25 d-inline-block w-100 " src="{% static "../static/image/icecream.jpg" %}" alt="icecream slide">
-    </div>
+<div class='content container-fluid w-full px-5 pt-5'>
+<div class='row justify-content-center align-items-center'>
+  <div class='col'>
+    <h1>Where Flavors Unfold</h1>
+    <h4>Explore the vibrant tapestry of spices that ignite your senses.</h4>
+    <p>Embark on a culinary journey through exotic lands, where each dish is a symphony of aromatic treasures. We handpick fresh, seasonal ingredients and weave them into vibrant tales on your plate. Whether you're a seasoned explorer or a curious newcomer, Spice Trail promises to tantalize your taste buds and leave you wanting more.</p>
+    <button ype="button" class="btn btn-info">Book Your Table</button>
   </div>
+  <div class='col'>
+    <img  src="{% static "../static/image/hero.jpg" %}" class="d-block w-100 h-100" alt="logo">
+  </div>
+</div>
 </div>
 
 
