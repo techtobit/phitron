@@ -27,14 +27,18 @@
           name="email"
         />
       </div>
-      {% comment %} <select class="form-select" aria-label="Default select example" name="select">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <select class="form-select" aria-label="Default select example" name="select">
         <option selected>Ratings</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-      </select> {% endcomment %}
+      </select>
     </br>
       <button type="submit" class="btn btn-primary mt-5">Submit</button>
     </form>
