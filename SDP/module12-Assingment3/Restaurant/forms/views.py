@@ -4,5 +4,11 @@ from django.shortcuts import render
 def forms(request):
     return render(request, 'forms.html')
 
-def submit_form(request):
-    return render(request, '../forms/templates/forms.html')
+
+# def submitForm(request):
+#     # if request.method == 'POST':
+#     #     name = request.POST.get('username')
+#     #     email = request.POST.get('email')
+#     #     return render(render, 'form.html', {'name' : name, 'email': email})
+#     # return render(request, 'forms.html')
+#     return render(request, '../forms/templates/forms.html')
