@@ -48,3 +48,19 @@ class StudentData(forms.Form):
     #         raise forms.ValidationError('Your Email Must Contain .com')
     
     
+
+class PasswordValidationForm(forms.Form):
+    name = forms.CharField(widget=forms.TextInput)
+    password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean(self):
+        clean_data = super().clean()
+        val_name = self.cleaned_data['name']
+        val_pass = self.cleaned_data['password']
+        val_conpass = self.cleaned_data['confirm_password']
+
+        if val_pass != val_conpass:
+            raise forms.ValidationError("Password doesn't matched")
+        if len(val_name) < 10:
+            raise forms.ValidationError("Name must be at last 10 chars")
