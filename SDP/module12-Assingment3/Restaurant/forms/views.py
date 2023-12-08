@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from . form import contactForm, StudentData, PasswordValidationForm
-from . import models
+from .form import contactForm, StudentData, PasswordValidationForm
+from . import models, form
+
 # Create your views here.
 def forms(request):
     return render(request, 'forms.html')
@@ -55,3 +56,12 @@ def DisplayData(request):
 def deleteStudent(request, roll):
     std = models.Student.objects.get(pk=roll).delete()
     return redirect('model-data')
+
+def add_student(request):
+    if request.method == "POST":
+        forms = form.StudentForm(request.POST)
+        if forms.is_valid():
+            forms.save()
+    else:
+        forms = form.StudentForm()
+    return render(request, 'modelForms.html', {'form': forms})

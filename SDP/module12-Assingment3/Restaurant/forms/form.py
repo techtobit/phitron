@@ -1,5 +1,6 @@
 from django import forms
 from django.core import validators
+from forms.models import Student
 
 
 class contactForm(forms.Form):
@@ -64,3 +65,29 @@ class PasswordValidationForm(forms.Form):
             raise forms.ValidationError("Password doesn't matched")
         if len(val_name) < 10:
             raise forms.ValidationError("Name must be at last 10 chars")
+        
+
+
+# inbuild form from Model-Form 
+# 1. import Student model form models.py 
+
+
+class StudentForm(forms.ModelForm):
+    
+    class Meta: 
+        model = Student
+        fields = ("__all__")
+        labels = {
+            'name':'Student Name',
+            'roll':'Student Roll'
+        }
+        widgets = {
+            'name': forms.TextInput(),
+        }
+        help_texts = {
+            'name': 'Write your full Name'
+        }
+        error_messages = {
+            'name':{'required': 'Your name is required'}
+        }
+
