@@ -51,3 +51,7 @@ def PasswordValidation(request):
 def DisplayData(request):
     student = models.Student.objects.all()
     return render(request, 'modleDataShow.html', {'data': student})
+
+def deleteStudent(request, roll):
+    std = models.Student.objects.get(pk=roll).delete()
+    return redirect('model-data')
