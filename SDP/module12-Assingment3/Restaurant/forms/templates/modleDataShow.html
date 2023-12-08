@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Modle Data Dispaly</h1>
+{% if data %}
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Roll</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Father's Name</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for st in data %}
+    <tr>
+      <td>{{st.roll}}</td>
+      <td>{{st.name}}</td>
+      <td>{{st.father_name}}</td>
+      <td>{{st.address}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{% else %}
+<h3>No data available to show</h3>
+{% endif%}
+
+{% endblock content %}
+
+

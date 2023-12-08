@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . form import contactForm, StudentData, PasswordValidationForm
+from . import models
 # Create your views here.
 def forms(request):
     return render(request, 'forms.html')
@@ -44,3 +45,9 @@ def PasswordValidation(request):
     else:
         form = PasswordValidationForm()
     return render(request, 'PasswordValidation.html', {'form':form})
+
+
+# createing models fun for display model data on page 
+def DisplayData(request):
+    student = models.Student.objects.all()
+    return render(request, 'modleDataShow.html', {'data': student})
