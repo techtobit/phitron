@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BlogProjectConfig(AppConfig):
+class CategoriesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'blog_project'
+    name = 'categories'
