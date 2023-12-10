@@ -33,12 +33,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'add_author' %}">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'add_author' %}">Add Author</a>
             </li>
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a class="nav-link" href="{% url 'add_author' %}">Add Category</a>
             </li>
             <li class="nav-item">
@@ -46,7 +46,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
-            </li>
+            </li> {% endcomment %}
           </ul>
           <form class="d-flex">
             <input
