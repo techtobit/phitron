@@ -6,8 +6,8 @@ from author.models import Author
 class Post(models.Model):
     title=models.CharField(max_length=100)
     content=models.TextField()
-    catagory=models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category)
     author=models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f'{ self.title}  -  {self.author}'
+        return f'{ self.title}  -  {self.author} | {self.category.name}'
