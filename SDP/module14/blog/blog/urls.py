@@ -9,6 +9,6 @@ urlpatterns = [
 
     path('author/', include('author.urls')),
     # path('posts/', include('posts.urls')),
-    # path('profiles/', include('profiles.urls')),
+    path('profiles/', include('profiles.urls')),
     # path('categories/', include('categories.urls')),
 ]
