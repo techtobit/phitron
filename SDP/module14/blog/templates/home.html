@@ -14,7 +14,7 @@
           {% endfor %}
         </p>
         <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit</a>
-        {% comment %} <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a> {% endcomment %}
+        <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
