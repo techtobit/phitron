@@ -5,7 +5,7 @@ from django.db import models
 class Musician(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    email = models.EmailField(max_length=45)
+    email = models.EmailField(max_length=45, primary_key=True)
     phone_number = models.CharField(max_length=15, help_text="Input phone number")
     instrument_type = models.CharField(max_length=20)
 
