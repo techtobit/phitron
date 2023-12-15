@@ -18,6 +18,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'categories',
     'tasklist',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
