@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-# from forms import TaskListForm
 from . import forms
+from categories.forms import Categorie
 from . import models
 # Create your views here.
 
@@ -14,7 +14,20 @@ def add_task(request):
         task_form = forms.TaskListForm()
     return render(request, 'add_task.html', {'form': task_form})
 
-def show_task(request):
-    tasks = models.TaskList.objects.all()
-    return render(request, 'show_task.html', {'tasks': tasks})
+def edit_task(request, id):
+    task = models.TaskList.objects.get(pk=id)
+    task_data = forms.TaskListForm(instance=task)
 
+    if request.method == 'POST':
+        task_data = forms.TaskListForm(request.POST, initial=task)
+        if task_data.is_valid():
+            task_data.save()
+            return redirect('show_task')
+    return render(request,  'add_task.html', {'form': task_data})
+
+
+def delete_task(request, id):
+    task = models.TaskList.objects.get(pk=id)
+    print(task)
+    task.delete()
+    return redirect('show_task')

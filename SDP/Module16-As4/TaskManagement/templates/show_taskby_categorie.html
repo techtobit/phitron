@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex flex-wrap  px-5 pt-5 ">
+{% for category, tasks in tasks.items %}
+<div class=" ">
+    <div class="card m-2 overflow-auto"  style='width: 280px;height:280px'>
+        <div class="card-body ">
+            <h6>Categorie : <span  class='btn btn-sm bg-dark text-white'>{{ category.category_name }}</span></h6>
+            {% comment %} <button class='btn btn-sm '>{{ category.category_name }}</button> {% endcomment %}
+            <ul >
+                {% for task in tasks %}
+                {% if task %}
+                    <p>{{ task.taskTitle }} | {{ task.is_completed }} | {{ task.assign_date }}</p>
+                {% endif %}
+                {% empty %}
+                    <p class='py-2 text-info'>No task created</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+
+
+{% endblock content %}
+
+
+
