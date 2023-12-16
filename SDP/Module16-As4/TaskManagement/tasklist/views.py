@@ -16,10 +16,10 @@ def add_task(request):
 
 def edit_task(request, id):
     task = models.TaskList.objects.get(pk=id)
-    task_data = forms.TaskListForm(instance=task)
+    task_data = forms.TaskListFormEdit(instance=task)
 
     if request.method == 'POST':
-        task_data = forms.TaskListForm(request.POST, initial=task)
+        task_data = forms.TaskListFormEdit(request.POST, instance=task)
         if task_data.is_valid():
             task_data.save()
             return redirect('show_task')
