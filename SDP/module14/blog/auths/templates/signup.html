@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if messages %}
+    {% for m in messages %}
+        <small {% if m.tags %} class='{{m.tags}}' {% endif %} >{{m}}</small>
+    {% endfor %}
+{% endif %}
+
+<form method='POST' style='width:50%; margin:auto' novalidate>
+    <h1>SingUp Page</h1>
+    {% csrf_token %}
+    {% comment %} {{form | crispy}}  {% endcomment %}
+
+    {% for fm in form  %}
+    {{fm.label_tag}} {{fm.errors|striptags}}
+    {% endfor %}
+    <br/>
+    <button class='btn btn-primary' type='submit'>Submit</button>
+    <br/>
+</form>
+
+{% endblock content %}

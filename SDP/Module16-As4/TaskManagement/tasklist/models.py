@@ -13,4 +13,4 @@ class TaskList(models.Model):
 
 
     def __str__(self) -> str:
-        return f'{self.taskTitle} | {self.is_completed} | {self.assign_date}'
+        return f'{self.taskTitle} | {self.assign_date}'

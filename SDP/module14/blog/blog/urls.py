@@ -8,8 +8,10 @@ urlpatterns = [
     path('', views.home, name='home'),
 
     path('author/', include('author.urls')),
+    path('auths/', include('auths.urls')),
     path('posts/', include('posts.urls')),
     path('profiles/', include('profiles.urls')),
     path('categories/', include('categories.urls')),
+
     
 ]

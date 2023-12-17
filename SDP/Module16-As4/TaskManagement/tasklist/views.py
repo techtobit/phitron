@@ -28,6 +28,5 @@ def edit_task(request, id):
 
 def delete_task(request, id):
     task = models.TaskList.objects.get(pk=id)
-    print(task)
     task.delete()
     return redirect('show_task')

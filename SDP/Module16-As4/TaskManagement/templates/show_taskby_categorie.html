@@ -9,9 +9,10 @@
             {% comment %} <button class='btn btn-sm '>{{ category.category_name }}</button> {% endcomment %}
             <ul >
                 {% for task in tasks %}
-                {% if task %}
-                    <p>{{ task.taskTitle }} | {{ task.is_completed }} | {{ task.assign_date }}</p>
-                {% endif %}
+                    {% if task %}
+
+                            <p>{{ task.taskTitle }}  | {{ task.assign_date }}</p>
+                    {% endif %}
                 {% empty %}
                     <p class='py-2 text-info'>No task created</p>
                 {% endfor %}

@@ -21,5 +21,4 @@ def show_taskby_categorie(request):
     tasks_by_category = {}
     for category in categories:
         tasks_by_category[category] = models.TaskList.objects.filter(categorie=category)
-    print(tasks_by_category)
     return render(request, 'show_taskby_categorie.html', {'tasks': tasks_by_category, })
