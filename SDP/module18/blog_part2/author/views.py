@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, update_session_auth_hash
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from . import forms
@@ -37,7 +37,17 @@ def user_login(request):
     return render(request, 'register.html', {'form': form, 'type': 'login'})
 
 
-
+def pass_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Passowrd Updated Successfully')
+            update_session_auth_hash(request, form.user)
+            return redirect('update_profile')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, 'pass_change.html', {'form':form})
 
 @login_required
 def edit_profile(request):
