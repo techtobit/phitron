@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, update_session_auth_hash
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -61,6 +61,9 @@ def edit_profile(request):
         profile_form = forms.ChangeUserForm(instance = request.user)
     return render(request, 'update_profile.html', {'form': profile_form})
 
+
+def session_logout(request):
+    logout(request)
 
 
 def add_author(request):
