@@ -53,8 +53,9 @@ def pass_change(request):
 
 @login_required
 def profile(request):
+    # get all post wrote by aouther to dispaly after login 
     data = Post.objects.filter(author = request.user)
-    return render(request, 'profile.html', {'form': data})
+    return render(request, 'profile.html', {'data': data})
 
 @login_required
 def edit_profile(request):
@@ -71,6 +72,7 @@ def edit_profile(request):
 
 def session_logout(request):
     logout(request)
+    return redirect('user_login')
 
 
 def add_author(request):
