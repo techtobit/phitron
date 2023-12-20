@@ -5,7 +5,6 @@
 
 <form style="width:50% ; margin : auto" class='py-5' method="post">
     <h1 >Update Your Profile</h1>
-    <a href={% url 'change_pass' %} class="btn btn-warning">Change Password</a>
     {% csrf_token %}
 {{form | crispy}}
 
