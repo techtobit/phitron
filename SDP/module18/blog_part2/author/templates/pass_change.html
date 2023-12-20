@@ -3,8 +3,8 @@
 {% block content %}
 
 
-<form style="width:50% ; margin : auto" method="post">
-    <h1>Register</h1>
+<form style="width:50% ; margin : auto" class='py-5' method="post">
+    <h1>Change Your Password</h1>
     {% csrf_token %}
 {{form | crispy}}
 
