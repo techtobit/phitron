@@ -41,6 +41,11 @@ class EditPostView(UpdateView):
     success_url = reverse_lazy('profile')
 
 
+class DeletePostView(DeleteView):
+    model = models.Post
+    template_name = 'delete.html'
+    success_url = reverse_lazy('profile')
+    pk_url_kwarg = 'id'
 
 
 @login_required
