@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from . import forms
 from django.contrib.auth.decorators import login_required
 from . import models
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
 # Create your views here.
 @login_required
@@ -17,6 +19,20 @@ def add_post(request):
     else: # user normally website e gele blank form pabe
         post_form = forms.PostForm()
     return render(request, 'add_post.html', {'form' : post_form})
+
+# class base Model view creation method 
+# @login_required
+
+class AddPostCreateView(CreateView):
+    model = models.Post
+    form_class = forms.PostForm
+    template_name = 'add_post.html'
+    success_url = reverse_lazy('add_post')
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+
 
 @login_required
 def edit_post(request, id):
