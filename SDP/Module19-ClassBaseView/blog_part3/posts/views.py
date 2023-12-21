@@ -3,7 +3,7 @@ from . import forms
 from django.contrib.auth.decorators import login_required
 from . import models
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView,UpdateView, DeleteView
 
 # Create your views here.
 @login_required
@@ -32,6 +32,15 @@ class AddPostCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
+
+class EditPostView(UpdateView):
+    model = models.Post
+    form_class = forms.PostForm
+    template_name = 'add_post.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('profile')
+
+
 
 
 @login_required
