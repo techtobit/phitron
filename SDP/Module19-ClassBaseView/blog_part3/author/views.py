@@ -12,17 +12,7 @@ from . import forms
 from posts.models import Post
 # Create your views here.
 
-def register(request):
-    if request.method == 'POST':
-        register_form = forms.RegistrationsForm(request.POST)
-        if register_form.is_valid():
-            register_form.save()
-            messages.success(request, 'Account Created Successfully')
-            return redirect('register')
-    else:
-        register_form = forms.RegistrationsForm()
-    return render(request, 'register.html', {'form': register_form, 'type':'Register'})
-
+    # -- class base view -- 
 
 class UserLoginView(LoginView):
     template_name = 'register.html'
@@ -38,6 +28,24 @@ class UserLoginView(LoginView):
         context = super().get_context_data(**kwargs)
         context['type'] = 'Login'
         return context
+
+class UserLogOutView(LogoutView):
+    def get_next_page(self):
+        return reverse_lazy('user_login')
+
+
+    # -- function base -- 
+
+def register(request):
+    if request.method == 'POST':
+        register_form = forms.RegistrationsForm(request.POST)
+        if register_form.is_valid():
+            register_form.save()
+            messages.success(request, 'Account Created Successfully')
+            return redirect('register')
+    else:
+        register_form = forms.RegistrationsForm()
+    return render(request, 'register.html', {'form': register_form, 'type':'Register'})
 
 def user_login(request):
     if request.method == 'POST':
@@ -93,6 +101,7 @@ def edit_profile(request):
 def session_logout(request):
     logout(request)
     return redirect('user_login')
+
 
 
 def add_author(request):
