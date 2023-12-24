@@ -4,8 +4,39 @@ from django.contrib.auth.decorators import login_required
 from . import models
 from django.urls import reverse_lazy
 from django.views.generic import CreateView,UpdateView, DeleteView
-
+from django.utils.decorators import method_decorator
 # Create your views here.
+
+# class base Model view creation method 
+
+@method_decorator(login_required, name='dispatch')
+class AddPostCreateView(CreateView):
+    model = models.Post
+    form_class = forms.PostForm
+    template_name = 'add_post.html'
+    success_url = reverse_lazy('add_post')
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+@method_decorator(login_required, name='dispatch')
+class EditPostView(UpdateView):
+    model = models.Post
+    form_class = forms.PostForm
+    template_name = 'add_post.html'
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('profile')
+
+@method_decorator(login_required, name='dispatch')
+class DeletePostView(DeleteView):
+    model = models.Post
+    template_name = 'delete.html'
+    success_url = reverse_lazy('profile')
+    pk_url_kwarg = 'id'
+
+
+
+    # ------ function base views method -------
 @login_required
 def add_post(request):
     if request.method == 'POST': # user post request koreche
@@ -19,34 +50,6 @@ def add_post(request):
     else: # user normally website e gele blank form pabe
         post_form = forms.PostForm()
     return render(request, 'add_post.html', {'form' : post_form})
-
-# class base Model view creation method 
-# @login_required
-
-class AddPostCreateView(CreateView):
-    model = models.Post
-    form_class = forms.PostForm
-    template_name = 'add_post.html'
-    success_url = reverse_lazy('add_post')
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-    
-
-class EditPostView(UpdateView):
-    model = models.Post
-    form_class = forms.PostForm
-    template_name = 'add_post.html'
-    pk_url_kwarg = 'id'
-    success_url = reverse_lazy('profile')
-
-
-class DeletePostView(DeleteView):
-    model = models.Post
-    template_name = 'delete.html'
-    success_url = reverse_lazy('profile')
-    pk_url_kwarg = 'id'
-
 
 @login_required
 def edit_post(request, id):
