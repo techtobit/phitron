@@ -3,7 +3,7 @@ from . import forms
 from django.contrib.auth.decorators import login_required
 from . import models
 from django.urls import reverse_lazy
-from django.views.generic import CreateView,UpdateView, DeleteView
+from django.views.generic import CreateView,UpdateView, DeleteView, DetailView
 from django.utils.decorators import method_decorator
 # Create your views here.
 
@@ -26,6 +26,11 @@ class EditPostView(UpdateView):
     template_name = 'add_post.html'
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('profile')
+
+class DetailsPostView(DetailView):
+    model = models.Post
+    pk_url_kwarg = 'id'
+    template_name = 'post_details.html'
 
 @method_decorator(login_required, name='dispatch')
 class DeletePostView(DeleteView):
