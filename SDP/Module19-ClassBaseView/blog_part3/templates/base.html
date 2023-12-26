@@ -45,6 +45,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'add_post' %}">Add Post</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'set_cookie' %}">Set Cookie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add_post' %}">Get Cookie</a>
+            </li>
           </ul>
           <div class='auth px-4'>
             {% if user.is_authenticated %}
