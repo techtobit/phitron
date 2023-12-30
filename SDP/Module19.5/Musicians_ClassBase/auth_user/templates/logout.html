@@ -2,8 +2,8 @@
 {% load crispy_forms_tags  %}
 {% block content %}
 
-<form method="POST" class='py-2' style='width:50%; margin:auto'>
-    <h4 class="page-header text-center py-1">Register</h4>
+<form  action="{% url 'logout' %}" method="POST" class='py-2' style='width:50%; margin:auto'>
+    <h4 class="page-header text-center py-1">LogOut Account</h4>
     {% csrf_token %}
     {{form | crispy}}
     <button class='btn btn-warning'>Submit</button>

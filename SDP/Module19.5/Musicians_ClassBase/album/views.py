@@ -4,9 +4,11 @@ from . models import Album
 from . models import Musician
 from . import forms
 from django.urls import reverse_lazy
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class AddAlbumView(CreateView):
     model = Album
     form_class = forms.AlbumForm

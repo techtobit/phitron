@@ -5,10 +5,13 @@ from . import forms
 from . import models
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
-
+@method_decorator(login_required, name='dispatch')
 class AddMusicianView(CreateView):
     model = models.Musician
     form_class = forms.MusicianForm

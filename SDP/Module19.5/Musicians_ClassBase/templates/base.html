@@ -24,10 +24,15 @@
               <a class="nav-link" href="{% url 'add_album' %}">Add Album</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <div class='auth px-4'>
+            {% if user.is_authenticated %}
+            {% comment %} <a href="{% url 'profile' %}" class="btn btn-outline-warning text-white" type="submit">Profile</a> {% endcomment %}
+            <a href="{% url 'logout' %}" class="btn btn-outline-warning text-black" type="submit">Logout</a>
+            {% else%}
+            <a href="{% url 'register' %}" class="btn btn-outline-success mx-4 text-black">Sign Up</a>
+            <a href="{% url 'user_login' %}" class="btn btn-outline-warning text-black" type="submit">Login</a>
+            {% endif %}
+          </div>
         </div>
       </div>
     </nav>
