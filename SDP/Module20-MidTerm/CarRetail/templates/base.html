@@ -10,8 +10,8 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="../static/icon/logo.png" alt="Bootstrap" width="30" height="24">
+        <a class="navbar-brand" {% url "home" %}>
+          {% comment %} <img src="../static/icon/logo.png" alt="Bootstrap" width="30" height="24"> {% endcomment %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -29,9 +29,8 @@
             </li>
           </ul>
           <div class="d-flex gap-2" role="search">
-            <a {% url 'register' %} class="btn btn-success" type="submit">SingUp</a>
-            {% comment %} <a href="{% url 'register' %}" class="btn btn-outline-success mx-4 text-black">Sign Up</a> {% endcomment %}
-            <button class="btn btn-warning" type="submit">LogIn</button>
+            <a href= "{% url 'register' %}" class="btn btn-success" type="submit">SingUp</a>
+            <a href= "{% url 'login' %}" class="btn btn-warning" type="submit">LogIn</a>
           </div>
         </div>
       </div>
