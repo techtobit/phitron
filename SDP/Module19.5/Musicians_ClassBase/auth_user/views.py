@@ -44,7 +44,7 @@ class RegisterView(View):
     template_name = 'signup.html'
 
     def get(self, request, *args, **kwargs):
-        register_form = forms.RegistrationsForm()
+        register_form = forms.RegistrationsForm
         return render(request, self.template_name, {'form': register_form, 'type': 'Register'})
     
     def post(self, request, *args, **kwargs):
