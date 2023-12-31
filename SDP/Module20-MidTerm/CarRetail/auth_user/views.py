@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.views import View
 from . import forms
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView,LogoutView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.auth import logout
 
 
 class RegisterView(View):
@@ -42,4 +43,9 @@ class UserLogInView(LoginView):
         context["type"] = 'login'
         return context
     
+
+class UserLogOutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('login')
     
