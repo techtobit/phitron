@@ -1,9 +1,13 @@
+from typing import Any
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponse
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect
 from django.views import View
 from . import forms
-from django.contrib.auth.views import LoginView,LogoutView
+from django.contrib.auth.models import User
+from django.views.generic import UpdateView
+from django.contrib.auth.views import LoginView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -48,4 +52,18 @@ class UserLogOutView(View):
     def get(self, request):
         logout(request)
         return redirect('login')
+
+class UpdateProfileView(UpdateView):
+    model = User
+    fields = fields = ['username', 'first_name', 'last_name', 'email']
+    template_name = 'update_profile.html'
+    success_url = reverse_lazy('update_profile')
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Profile Updated')
+        return super().form_valid(form)
     
+    def get_object(self):
+        return self.request.user
+    
+

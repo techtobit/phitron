@@ -27,7 +27,7 @@
           </ul>
           <div class="d-flex gap-2" role="search">
             {% if user.is_authenticated %}
-            <a href= "{% url 'register' %}" class="btn btn-warning">Profile</a>
+              <a href= "{% url 'update_profile' %}" class="btn btn-warning">Profile</a>
               <a href= "{% url 'logout' %}" class="btn btn-danger">LogOut</a>
               {% else %}
                 <a href= "{% url 'register' %}" class="btn btn-success">SingUp</a>
