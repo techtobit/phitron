@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('auth/', include('auth_user.urls')),
     path('brand/', include('brands.urls')),
+    path('cars/', include('cars.urls')),
 ]
