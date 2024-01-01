@@ -2,7 +2,7 @@
 {% load crispy_forms_tags  %}
 {% block content %}
 
-<form method="POST" class='py-2' style='width:50%; margin:auto'>
+<form method="POST" enctype="multipart/form-data" class='py-2' style='width:50%; margin:auto'>
     <h4 class="page-header text-center py-1">Add Brand</h4>
     {% csrf_token %}
     {{form | crispy}}

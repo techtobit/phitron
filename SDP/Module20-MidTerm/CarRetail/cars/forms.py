@@ -5,5 +5,5 @@ from django.forms import Textarea
 class CarsFrom(forms.ModelForm):
     class Meta:
         model = Cars
-        fields = '__all__'
-        widgets={"description": Textarea(attrs={"cols": 5, "rows": 20})},
+        fields = ['car_name', 'car_brand', 'car_image', 'description', 'quantity', 'price']
+        widgets={'description':Textarea(attrs={'cols': 3, 'rows': 3})},
