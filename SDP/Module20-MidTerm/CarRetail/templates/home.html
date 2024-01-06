@@ -53,7 +53,12 @@
       <div class="card" style="width: 20rem;">
           <img src="{{car.car_image.url}}" class="card-img-top" alt="...">
           <div class="card-body">
-              <h5 class="card-title fw-bold text-uppercase gap-2">{{car.car_name}}</h5>
+            <p>{{car.id}}</p>
+              <h5 class="card-title fw-bold text-uppercase gap-2">
+                {% comment %} <a href="{% url 'car_details' car.id %}" class="text-decoration-none text-dark">{{car.car_name}}</a>
+              
+              </h5> {% endcomment %}
+              <h5 class="card-title"><a href="{% url 'detail_post' car.id %}" class="text-decoration-none text-dark">{{car.car_name}}</a></h5>
               <p class="card-text btn btn-sm btn-light disabled">Brand : {{car.car_brand}}</p>
               <div class="d-flex gap-2">
                   <p class="btn btn-sm btn-primary disabled">Quantity :{{car.quantity}}</p>

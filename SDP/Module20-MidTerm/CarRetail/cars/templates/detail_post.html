@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container col-10 py-5 d-flex justify-content-center">
+    <div class="card m-2">
+        <div class="card-body">
+            <img src="{{object.car_image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title fw-bold text-uppercase gap-2">
+                {{object.car_name}}
+                </h5>
+            <p class="card-text btn btn-sm btn-light disabled">Brand : {{object.car_brand}}</p>
+            <div class="d-flex gap-2">
+                <p class="btn btn-sm btn-primary disabled">Quantity :{{object.quantity}}</p>
+                <p class="btn btn-sm btn-warning disabled ">Price :{{object.price}}</p>
+            </div>
+            <p class="card-text">{{object.description }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
