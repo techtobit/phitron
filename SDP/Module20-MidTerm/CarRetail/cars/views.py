@@ -17,3 +17,5 @@ class DetailPostView(DetailView):
     context_object_name = 'car'
     pk_url_kwarg = 'id'
     template_name = 'detail_post.html'
+
+    
