@@ -15,6 +15,9 @@
                 <p class="btn btn-sm btn-warning disabled ">Price :{{object.price}}</p>
             </div>
             <p class="card-text">{{object.description }}</p>
+            {% if user.is_authenticated %}
+                <button class='btn btn-sm btn-success'>Buy Car</button>
+            {% endif %}
         </div>
     </div>
 </div>
