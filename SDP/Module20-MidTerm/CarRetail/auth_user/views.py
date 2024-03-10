@@ -26,7 +26,7 @@ class RegisterView(View):
         if register_form.is_valid():
             register_form.save()
             messages.success(request, 'Account Created Successfully')
-            return redirect('register')
+            return redirect('login')
         else:
             print(register_form.errors)
         return render(request, self.template_name, {'form': register_form})

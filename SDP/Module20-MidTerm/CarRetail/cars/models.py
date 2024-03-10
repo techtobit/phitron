@@ -14,11 +14,11 @@ class Cars(models.Model):
     
 
 
-class Comment(models.Model):
+class Comments(models.Model):
     post = models.ForeignKey(Cars, on_delete=models.CASCADE, related_name = 'comments')
     name = models.CharField(max_length=20)
     email = models.EmailField(max_length=60)
-    body = models.CharField(max_length=20)
+    body = models.TextField(max_length=120)
     created_no = models.DateTimeField(auto_now_add = True)
 
     def __str__(self) -> str:
