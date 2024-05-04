@@ -12,7 +12,8 @@ class Cars(models.Model):
     def __str__(self):
         return f'{self.car_name} - {self.car_brand} | price({self.price})'
     
-
+class salesCars(models.Model):
+                                8
 
 class Comments(models.Model):
     post = models.ForeignKey(Cars, on_delete=models.CASCADE, related_name = 'comments')
