@@ -1,3 +1,14 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import FormView
+from .form import RegistrationsForm
 
-# Create your views here.
+class UserRegistrationView(FormView):
+    template_name = 'registration.html'
+    form_class = RegistrationsForm
+    success_url = reverse_lazy('profile')
+    
+    def form_valid(self,form):
+        user = form.save()
+        login(self.request, user)
+        return super().form_valid(form) 
