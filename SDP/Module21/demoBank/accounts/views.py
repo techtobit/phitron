@@ -8,7 +8,7 @@ from .form import RegistrationsForm
 class UserRegistrationView(FormView):
     template_name = 'registration.html'
     form_class = RegistrationsForm
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('login')
     
     def form_valid(self,form):
         user = form.save()
