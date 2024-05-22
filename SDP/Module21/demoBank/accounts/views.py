@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import FormView
+from django.views import View
 from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView, LogoutView
-from .form import RegistrationsForm
+from .form import RegistrationsForm, UserUpdateForm
 
 class UserRegistrationView(FormView):
     template_name = 'registration.html'
@@ -26,4 +27,11 @@ class UserLogOutView(LogoutView):
 		if self.request.user.is_authenticated:
 			logout(self.request)
 		return reverse_lazy('home')
-				
+
+class UserUpdateView(View):
+	template_name = 'profile.html'
+
+	def get(self, request):
+		form = UserUpdateForm(instance=request.user)
+		return render(request, self.template_name, {'form':form})
+		
