@@ -1,8 +1,8 @@
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import User
 from .constants import ACCOUNT_TYPE, GENDER_TYPE
-from . models import UserBankAccount, UserAddress
+from . forms import UserBankAccount, UserAddress
 
 class RegistrationsForm(UserCreationForm):
 	birth_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
@@ -61,3 +61,28 @@ class RegistrationsForm(UserCreationForm):
           'focus:bg-white focus:border-gray-500'
 				)
 			})
+
+class UserUpdateForm(forms.ModelForm):
+	account_type = forms.CharField(max_length=10, choices=ACCOUNT_TYPE)
+	birth_date = forms.DateField(null=True, blank=True)
+	gender = forms.CharField(max_length=6, choices=GENDER_TYPE)
+	country = forms.CharField(max_length=100)
+	city = forms.CharField(max_length=50)
+	street_address = forms.CharField(max_length=50)
+	postal_code = forms.CharField(max_length=5)
+
+	class Meta:
+		model = User
+		fields = ['first_name', 'last_name', 'email']
+
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		for filed in self.fields:
+			fileds[field].widget.attrs.update({
+				'class' : (
+					'appearance-none block w-full bg-gray-200 '
+          'text-gray-700 border border-gray-200 rounded '
+          'py-3 px-4 leading-tight focus:outline-none '
+          'focus:bg-white focus:border-gray-500'
+				)
+		})
