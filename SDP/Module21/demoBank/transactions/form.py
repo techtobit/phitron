@@ -30,3 +30,24 @@ class DepositFrom(Transaction):
 				f'You need to deposit at least $ {min_deposit_amount}'
 			)
 		return amount
+
+class WithdrawForm(Transaction):
+	def clean_amount(self):
+		account = self.account
+		min_withdraw_ammount = 500
+		max_withdraw_ammount = 25000
+		balance = account.balance
+		amount = self.cleaned_data.get('amount')
+		if amount < min_withdraw_ammount:
+			raise forms.ValidationError(
+				f'You can withdraw at least ${min_withdraw_ammount}'
+			)
+		if amount > balance:
+			raise forms.ValidationError(
+				f'Insufficient Balance'
+			)
+		if amount > max_withdraw_ammount :
+			raise forms.ValidationError(
+				f'You cannot widthdraw more then $ {max_withdraw_ammount}'
+			)
+		return amount
