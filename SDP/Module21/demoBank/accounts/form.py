@@ -104,7 +104,7 @@ class UserUpdateForm(forms.ModelForm):
 				self.fields['postal_code'].initial = user_address.postal_code
 
 	def save(self, commit = True):
-		user = super.save(commit = False)
+		user = super().save(commit = False)
 		if commit:
 			user.save()
 			

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 from django.views import View
@@ -34,4 +34,10 @@ class UserUpdateView(View):
 	def get(self, request):
 		form = UserUpdateForm(instance=request.user)
 		return render(request, self.template_name, {'form':form})
-		
+	
+	def post(self, request):
+		form = UserUpdateForm(request.POST, instance = request.user)
+		if form.is_valid():
+			form.save()
+			return redirect('profile')
+		return render(request, self.template_name, {'form':form})
