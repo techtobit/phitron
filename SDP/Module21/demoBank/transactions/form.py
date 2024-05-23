@@ -51,3 +51,13 @@ class WithdrawForm(Transaction):
 				f'You cannot widthdraw more then $ {max_withdraw_ammount}'
 			)
 		return amount
+
+class LoanRequestFrom(Transaction):
+	def clean_amount(self):
+		max_eligible_loan = account.balance * 2
+		amount = self.cleaned_data.get('amount')
+		if amount > max_eligible_loan:
+			raise forms.ValidationError(
+				f'Your eligible lone limit is ${max_eligible_loan}'
+			)
+		return amount
