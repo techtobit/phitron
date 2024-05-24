@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, ListView
 from transactions.models import Transaction
 from transactions.form import (DepositFrom, WithdrawForm, LoanRequestForm)
 from transactions.constant import DEPOSIT, WITHDRAWAL, LOAN, LOAN_PAID
@@ -97,4 +97,39 @@ class LoanRequestView(TransactionCreateMixin):
             f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
         )
 			return super().form_valid(form)
+
+
+
+
+class TransactionReportView(LoginRequiredMixin, ListView):
+	template_name=''
+	model = Transaction
+	balance = 0
+
+	def get_queryset(self):
+		queryset = super().get_queryset().filter(
+			account = self.request.user.account
+		)
+		start_date_str = self.request.GET.get('start_date')
+		end_date_str	 = self.request.GET.get('end_date')
+
+		if start_date_str and end_date_str :
+			start_date_str = datetime.strptime(start_date_str, '%Y-%m-%d').date()
+			end_date_str = datetime.strptime(end_date_str, '%Y-%m-%d').date()
+		
+			queryset = queryset.filter(timestamp__date_get=start_date_str, timestamp__date_lte=end_date_str)
+			self.balance = Transaction.objects.filter(timestamp__date_get=start_date_str, 
+			timestamp__date_lte=end_date_str).aggregate(sum('amount'))['amount__sum']
+
+		else:
+			self.balance = self.request.user.account.balance
+		return queryset.distinct()
+	
+	def get_context_data(self, **kwargs):
+			context = super().get_context_data(**kwargs)
+			context.update({
+				'account': self.request.user.account
+			})
+			return context
+	
 	
