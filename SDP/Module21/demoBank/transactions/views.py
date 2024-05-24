@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
@@ -77,3 +77,24 @@ class WitdhdrawMoneyView(TransactionCreateMixin):
 class LoanRequestView(TransactionCreateMixin):
 	form_class = LoanRequestForm
 	title = 'Loan Request Form'
+
+	def get_initial(self, form):
+		initial = {'transaction_type': LOAN}
+		return initial
+
+	def form_valid(self, form):
+			loan_limit = 3
+			amount = self.cleaned_data.get('amount')
+			current_loan_count = Transaction.objects.filter(
+				account= self.request.user.account,
+				transaction_type=3, loan_approve=True).count()
+
+			if current_loan_count > loan_limit : 
+				return HttpResponse('You have cross the loan limit')
+			
+			messages.success(
+            self.request,
+            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+        )
+			return super().form_valid(form)
+	
