@@ -53,7 +53,7 @@ class WithdrawForm(Transaction):
 			)
 		return amount
 
-class LoanRequestFrom(Transaction):
+class LoanRequestForm(Transaction):
 	def clean_amount(self):
 		max_eligible_loan = account.balance * 2
 		amount = self.cleaned_data.get('amount')

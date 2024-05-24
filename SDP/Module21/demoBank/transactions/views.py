@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 from transactions.models import Transaction
-from transactions.form import (DepositFrom, WithdrawForm, LoanRequestFrom)
+from transactions.form import (DepositFrom, WithdrawForm, LoanRequestForm)
 from transactions.constant import DEPOSIT, WITHDRAWAL, LOAN, LOAN_PAID
 
 class TransactionCreateMixin(LoginRequiredMixin, CreateView):
@@ -71,4 +71,9 @@ class WitdhdrawMoneyView(TransactionCreateMixin):
             f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
         )
 		return super().form_valid(form)
-	
+
+
+
+class LoanRequestView(TransactionCreateMixin):
+	form_class = LoanRequestForm
+	title = 'Loan Request Form'
