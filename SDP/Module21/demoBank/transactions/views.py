@@ -51,4 +51,24 @@ class DepositMoneyView(TransactionCreateMixin):
 			)
 			return super().form_valid(form)
 	
+class WitdhdrawMoneyView(TransactionCreateMixin):
+	form_class = WithdrawForm
+	title = 'Withdraw Form'
+
+	def get_initial(self, form):
+		initial = {'transaction_type' : WITHDRAWAL}
+		return initial
+	
+	def form_valid(self, form):
+		amount = self.cleaned_data.get('amount')
+		self.request.user.account.balance -= form.cleaned_data.get('amount')
+		self.request.user.account.save(
+			update_fields=['balance']
+		)
+		
+		messages.success(
+            self.request,
+            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+        )
+		return super().form_valid(form)
 	
