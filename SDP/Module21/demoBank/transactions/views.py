@@ -121,6 +121,7 @@ class TransactionReportView(LoginRequiredMixin, ListView):
 			self.balance = Transaction.objects.filter(timestamp__date_get=start_date_str, 
 			timestamp__date_lte=end_date_str).aggregate(sum('amount'))['amount__sum']
 
+
 		else:
 			self.balance = self.request.user.account.balance
 		return queryset.distinct()
