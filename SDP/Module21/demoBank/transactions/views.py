@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, ListView
+from django.views.generic import CreateView, ListView, View
 from transactions.models import Transaction
 from transactions.form import (DepositFrom, WithdrawForm, LoanRequestForm)
 from transactions.constant import DEPOSIT, WITHDRAWAL, LOAN, LOAN_PAID
@@ -132,5 +132,28 @@ class TransactionReportView(LoginRequiredMixin, ListView):
 				'account': self.request.user.account
 			})
 			return context
+
+
+class PayLoanView(LoginRequiredMixin, view):
+	def get(self, request, loan_id):
+		loan = get_object_or_404(Transaction, id = loan_id):
+
+		if loan.loan_approve:
+			user_account = loan.account
+			if loan.amount < user_account.balance:
+				user_account.balance -= loan.amount
+				loan.balance_after_transaction = user_account.balance
+				user_account.save()
+				loan.loan_approve = True
+				loan.transaction_type = LOAN_PAID
+				loan.save()
+				return redirect('transactions:loan_list')
+			else:
+				messages.error(
+					self.request,
+					f'Loan amount is morethen balance'
+				)
+		return redirect('loan_list')
+
 	
 	
