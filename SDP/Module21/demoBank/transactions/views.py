@@ -155,5 +155,13 @@ class PayLoanView(LoginRequiredMixin, view):
 				)
 		return redirect('loan_list')
 
-	
+class LoanListView(LoginRequiredMixin, ListView):
+	model = Transaction
+	template_name = 'transaction_report.html'
+	context_object_name = 'loans'
+
+	def def get_queryset(self):
+			user_account = self.request.user.account
+			queryset = Transaction.objects.filter(account=user_account, transaction_type =4)
+			return queryset
 	
