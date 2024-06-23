@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, View
+from django.views.generic import CreateView, ListView, View, TemplateView
 from transactions.models import Transaction
 from transactions.form import (DepositFrom, WithdrawForm, LoanRequestForm)
 from transactions.constant import DEPOSIT, WITHDRAWAL, LOAN, LOAN_PAID
 
+class HelloView(TemplateView):
+	template_name='transactions/test.html'
+
 class TransactionCreateMixin(LoginRequiredMixin, CreateView):
-	template_name = ''
+	template_name = 'transaction_form.html'
 	model = Transaction
 	title = ''
 	success_url = reverse_lazy('')
@@ -102,7 +105,7 @@ class LoanRequestView(TransactionCreateMixin):
 
 
 class TransactionReportView(LoginRequiredMixin, ListView):
-	template_name=''
+	template_name='transaction_report.html'
 	model = Transaction
 	balance = 0
 
@@ -157,7 +160,7 @@ class PayLoanView(LoginRequiredMixin, view):
 
 class LoanListView(LoginRequiredMixin, ListView):
 	model = Transaction
-	template_name = 'transaction_report.html'
+	template_name = 'loan_request.html'
 	context_object_name = 'loans'
 
 	def def get_queryset(self):
