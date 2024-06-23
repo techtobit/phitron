@@ -1,4 +1,4 @@
-from django.forms import forms
+from django import forms
 from .models import Transaction
 
 class TransactionForm(forms.ModelForm):
@@ -22,7 +22,7 @@ class TransactionForm(forms.ModelForm):
 
 		return super().save()
 
-class DepositFrom(Transaction):
+class DepositForm(Transaction):
 	def clean_amount(self):
 		min_deposit_amount=100
 		amount = self.cleand_data.get('amount')

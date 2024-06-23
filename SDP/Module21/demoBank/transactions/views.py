@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, View, TemplateView
 from transactions.models import Transaction
-from transactions.form import (DepositFrom, WithdrawForm, LoanRequestForm)
+from transactions.form import (DepositForm, WithdrawForm, LoanRequestForm)
 from transactions.constant import DEPOSIT, WITHDRAWAL, LOAN, LOAN_PAID
 
 class HelloView(TemplateView):
@@ -30,7 +30,7 @@ class TransactionCreateMixin(LoginRequiredMixin, CreateView):
 			return context
 
 class DepositMoneyView(TransactionCreateMixin):
-	form_class = DepositFrom
+	form_class = DepositForm
 	title = 'Deposit Form'
 
 	def get_initial(self):
@@ -75,8 +75,6 @@ class WitdhdrawMoneyView(TransactionCreateMixin):
         )
 		return super().form_valid(form)
 
-
-
 class LoanRequestView(TransactionCreateMixin):
 	form_class = LoanRequestForm
 	title = 'Loan Request Form'
@@ -100,9 +98,6 @@ class LoanRequestView(TransactionCreateMixin):
             f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
         )
 			return super().form_valid(form)
-
-
-
 
 class TransactionReportView(LoginRequiredMixin, ListView):
 	template_name='transaction_report.html'
@@ -136,11 +131,9 @@ class TransactionReportView(LoginRequiredMixin, ListView):
 			})
 			return context
 
-
-class PayLoanView(LoginRequiredMixin, view):
+class PayLoanView(LoginRequiredMixin, View):
 	def get(self, request, loan_id):
-		loan = get_object_or_404(Transaction, id = loan_id):
-
+		loan = get_object_or_404(Transaction, id=loan_id)
 		if loan.loan_approve:
 			user_account = loan.account
 			if loan.amount < user_account.balance:
@@ -162,8 +155,7 @@ class LoanListView(LoginRequiredMixin, ListView):
 	model = Transaction
 	template_name = 'loan_request.html'
 	context_object_name = 'loans'
-
-	def def get_queryset(self):
+	def get_queryset(self):
 			user_account = self.request.user.account
 			queryset = Transaction.objects.filter(account=user_account, transaction_type =4)
 			return queryset
