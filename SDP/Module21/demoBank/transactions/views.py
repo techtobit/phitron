@@ -9,26 +9,52 @@ from transactions.constant import DEPOSIT, WITHDRAWAL, LOAN, LOAN_PAID
 class HelloView(TemplateView):
 	template_name='transactions/test.html'
 
+# class TransactionCreateMixin(LoginRequiredMixin, CreateView):
+# 	template_name = 'transaction_form.html'
+# 	model = Transaction
+# 	title = ''
+# 	success_url = reverse_lazy('')
+
+# 	def get_form_kwargs(self):
+# 		kwargs = super().get_form_kwargs()
+# 		kwargs.update({
+# 			'account' : self.request.user.account
+# 		})
+# 		return kwargs
+
+# 	def get_context_data(self, **kwargs):
+# 			context = super().get_context_data(**kwargs)
+# 			context.update({
+# 				'title' : self.title
+# 			})
+# 			return context
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
+from transactions.models import Transaction
+
 class TransactionCreateMixin(LoginRequiredMixin, CreateView):
-	template_name = 'transaction_form.html'
-	model = Transaction
-	title = ''
-	success_url = reverse_lazy('')
+    template_name = 'transactions/transaction_form.html'
+    model = Transaction
+    title = ''
+    success_url = reverse_lazy('transaction_report')
 
-	def get_form_kwargs(self):
-		kwargs = super().get_form_kwargs()
-		kwargs.update({
-			'account' : self.request.user.account
-		})
-		return kwargs
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({
+            'account': self.request.user.account
+        })
+        return kwargs
 
-	def get_context_data(self, **kwargs):
-			context = super().get_context_data(**kwargs)
-			context.update({
-				'title' : self.title
-			})
-			return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) # template e context data pass kora
+        context.update({
+            'title': self.title
+        })
 
+        return context
+				
 class DepositMoneyView(TransactionCreateMixin):
 	form_class = DepositForm
 	title = 'Deposit Form'
@@ -54,6 +80,8 @@ class DepositMoneyView(TransactionCreateMixin):
 			)
 			return super().form_valid(form)
 	
+
+
 class WitdhdrawMoneyView(TransactionCreateMixin):
 	form_class = WithdrawForm
 	title = 'Withdraw Form'
@@ -75,29 +103,51 @@ class WitdhdrawMoneyView(TransactionCreateMixin):
         )
 		return super().form_valid(form)
 
-class LoanRequestView(TransactionCreateMixin):
-	form_class = LoanRequestForm
-	title = 'Loan Request Form'
+# class LoanRequestView(TransactionCreateMixin):
+# 	form_class = LoanRequestForm
+# 	title = 'Loan Request Form'
 
-	def get_initial(self, form):
-		initial = {'transaction_type': LOAN}
-		return initial
+# 	def get_initial(self, form):
+# 		initial = {'transaction_type': LOAN}
+# 		return initial
 
-	def form_valid(self, form):
-			loan_limit = 3
-			amount = self.cleaned_data.get('amount')
-			current_loan_count = Transaction.objects.filter(
-				account= self.request.user.account,
-				transaction_type=3, loan_approve=True).count()
+# 	def form_valid(self, form):
+# 			loan_limit = 3
+# 			amount = self.cleaned_data.get('amount')
+# 			current_loan_count = Transaction.objects.filter(
+# 				account= self.request.user.account,
+# 				transaction_type=3, loan_approve=True).count()
 
-			if current_loan_count > loan_limit : 
-				return HttpResponse('You have cross the loan limit')
+# 			if current_loan_count > loan_limit : 
+# 				return HttpResponse('You have cross the loan limit')
 			
-			messages.success(
+# 			messages.success(
+#             self.request,
+#             f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+#         )
+# 			return super().form_valid(form)
+
+
+class LoanRequestView(TransactionCreateMixin):
+    form_class = LoanRequestForm
+    title = 'Request For Loan'
+
+    def get_initial(self):
+        initial = {'transaction_type': LOAN}
+        return initial
+
+    def form_valid(self, form):
+        amount = form.cleaned_data.get('amount')
+        current_loan_count = Transaction.objects.filter(
+            account=self.request.user.account,transaction_type=3,loan_approve=True).count()
+        if current_loan_count >= 3:
+            return HttpResponse("You have cross the loan limits")
+        messages.success(
             self.request,
-            f'Successfully withdrawn {"{:,.2f}".format(float(amount))}$ from your account'
+            f'Loan request for {"{:,.2f}".format(float(amount))}$ submitted successfully'
         )
-			return super().form_valid(form)
+
+        return super().form_valid(form)
 
 class TransactionReportView(LoginRequiredMixin, ListView):
 	template_name='transaction_report.html'
