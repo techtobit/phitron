@@ -25,7 +25,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'User',
     'Core',
+    'compressor', 
 ]
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -21,4 +21,5 @@ from Core.views import Home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.as_view(), name='home'),
+    path('auth/', include('User.urls')),
 ]
