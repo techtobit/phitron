@@ -5,8 +5,6 @@ from django.contrib.auth.views import LoginView
 from .forms import RegistrationsForm
 from django.urls import reverse_lazy
 
-class SingUp(TemplateView):
-	template_name='singup.html'
 
 class RegistrationsView(CreateView):
 	form_class = RegistrationsForm
