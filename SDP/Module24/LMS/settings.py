@@ -22,18 +22,19 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'compressor', 
+    'django.contrib.staticfiles', 
+    # "django_bootstrap5",
+    "bootstrap5",
+    "crispy_forms",
+    "crispy_bootstrap5",
     'User',
     'Core',
     'Books',
 ]
 
-COMPRESS_ROOT = BASE_DIR / 'static'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
-COMPRESS_ENABLED = True
-
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
