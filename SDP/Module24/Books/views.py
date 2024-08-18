@@ -12,12 +12,13 @@ class AddBooksView(FormView):
 
 	def form_valid(self, form):
 			# form
+			print(form)
 			return super().form_valid(form)
 
 class AddCategoryView(FormView):
 	form_class = AddCategoryForm
 	template_name = 'addBooksCategory.html'
-	success_url = reverse_lazy('addbook')
+	success_url = reverse_lazy('add_book')
 
 	def form_valid(self, form):
 			form.save()
