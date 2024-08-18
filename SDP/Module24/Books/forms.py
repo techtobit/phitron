@@ -7,8 +7,7 @@ class AddBooksForm(forms.ModelForm):
 				model = Books
 				fields = ("__all__")
 
-class CategoryForm(forms.ModelForm):
-		
+class AddCategoryForm(forms.ModelForm):
 		class Meta:
 				model = BookCategory
 				fields = ("__all__")
