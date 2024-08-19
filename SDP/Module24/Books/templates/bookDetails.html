@@ -26,7 +26,9 @@
 			<div class="d-grid gap-2 ">
 				<form method="post">
 					{% csrf_token %}
+					{% if request.user.is_authenticated %}
 					<button class="btn btn-primary m-3 " type="submit">Borrow Book</button>
+					{%endif%}
 			</form>
 			</div>
     </div>
