@@ -95,21 +95,47 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Book</th>
+            <th scope="col">Price</th>
             <th scope="col">Borrowed Date</th>
+            <th scope="col">Return</th>
           </tr>
         </thead>
         <tbody>
           {% for borrowed_book in borrowed_books %}
-            <tr class="">
-              <th scope="row">{{ borrowed_book.book.id }}</th>
-              
-              <td>{{ borrowed_book.book.title }}</td>
-              <td>{{ borrowed_book.borrowed_on }}</td>
-            </tr>
+              <tr>
+                  <th scope="row">{{ borrowed_book.book.id }}</th>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img
+                          src={{borrowed_book.book.image.url}}
+                          alt=""
+                          style="width: 45px; height: 45px"
+                          class="rounded-circle"
+                          />
+                      <div class="ms-3">
+                            <p class="fw-bold mb-1">{{ borrowed_book.book.title }}</p>
+                            <p class="text-muted mb-0">by {{ borrowed_book.book.author }}</p>
+                      </div>
+                          
+                    </div>
+                  </td>
+                  <td>{{ borrowed_book.book.price }}</td>
+                  <td>{{ borrowed_book.borrowed_on }}</td>
+                  <td>
+                      <form method="post">
+                          {% csrf_token %}
+                          <input type="hidden" name="book_id" value="{{ borrowed_book.id }}">
+                          <button type="submit" class="btn btn-primary">Get Pay</button>
+                      </form>
+                  </td>
+              </tr>
           {% empty %}
-          <li>You have not borrowed any books yet.</li>
+              <tr>
+                  <td colspan="4">You have not borrowed any books yet.</td>
+              </tr>
           {% endfor %}
-        </tbody>
+      </tbody>
+      
       </table>
       <ul>
 
