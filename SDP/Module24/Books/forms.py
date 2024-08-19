@@ -18,8 +18,8 @@ class AddCategoryForm(forms.ModelForm):
 class AddReviewsForm(forms.ModelForm):
 		class Meta:
 				model = Reviews
-				fields = ("__all__")
+				fields = ['rate', 'body'] 
 				widgets = {
-            'description': forms.Textarea(attrs={'rows': 3, 'cols': 40}),
+            'body': forms.Textarea(attrs={'rows': 3, 'cols': 40}),
         }
 

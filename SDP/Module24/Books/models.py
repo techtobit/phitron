@@ -34,9 +34,10 @@ class Reviews(models.Model):
 	book = models.ForeignKey(Books, related_name='review', on_delete=models.CASCADE)
 	rate = models.CharField(max_length=10, choices=REVIEW)
 	body= models.TextField()
+	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return f"{self.user} || {self.book} || {self.rate}"
+		return f"Review by {self.user.username} for {self.book.title}"
 
 	
 

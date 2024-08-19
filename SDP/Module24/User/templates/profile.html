@@ -27,7 +27,7 @@
               <div class="d-flex justify-content-center mb-2">
                 <form method="POST" class='d-flex flex-column'>
                     {% csrf_token %}
-                    {{form|crispy}}
+                    {{deposit_form|crispy}}
                     <button type="submit" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Deposit</button>
                 </form>
                 
@@ -98,6 +98,7 @@
             <th scope="col">Price</th>
             <th scope="col">Borrowed Date</th>
             <th scope="col">Return</th>
+            <th scope="col">Review</th>
           </tr>
         </thead>
         <tbody>
@@ -125,22 +126,46 @@
                       <form method="post">
                           {% csrf_token %}
                           <input type="hidden" name="book_id" value="{{ borrowed_book.id }}">
-                          <button type="submit" class="btn btn-primary">Get Pay</button>
+                          <button type="submit" name='return_book' class="btn btn-primary">Get Pay</button>
                       </form>
                   </td>
+                  <td>
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#reviewModal{{ borrowed_book.book.id }}">
+                      Give Rateing
+                  </button>
+      
+                  </td>
               </tr>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="reviewModal{{ borrowed_book.book.id }}" tabindex="-1" aria-labelledby="reviewModalLabel{{ borrowed_book.book.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="reviewModalLabel{{ borrowed_book.book.id }}">Review {{ borrowed_book.book.title }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="book_id" value="{{ borrowed_book.book.id }}">
+                                {{ review_form.as_p }}
+                                <button type="submit" name="add_review" class="btn btn-primary">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
           {% empty %}
               <tr>
                   <td colspan="4">You have not borrowed any books yet.</td>
               </tr>
           {% endfor %}
       </tbody>
-      
       </table>
-      <ul>
-
-    </ul>
-    
     </div>
   </section>
 
