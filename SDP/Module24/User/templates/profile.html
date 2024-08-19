@@ -90,8 +90,35 @@
 
         </div>
       </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book</th>
+            <th scope="col">Borrowed Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for borrowed_book in borrowed_books %}
+            <tr class="">
+              <th scope="row">{{ borrowed_book.book.id }}</th>
+              
+              <td>{{ borrowed_book.book.title }}</td>
+              <td>{{ borrowed_book.borrowed_on }}</td>
+            </tr>
+          {% empty %}
+          <li>You have not borrowed any books yet.</li>
+          {% endfor %}
+        </tbody>
+      </table>
+      <ul>
+
+    </ul>
+    
     </div>
   </section>
+
+
 
 
 

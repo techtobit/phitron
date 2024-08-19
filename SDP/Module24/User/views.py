@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Profile
+from Books.models import BorrowedBooks
 
 
 
@@ -46,6 +47,7 @@ class LogOutView(LogoutView):
 
 
 def ProfileView(request):
+	borrowed_books = BorrowedBooks.objects.filter(user=request.user)
 	profile = request.user.profile
 	if request.method=="POST":
 		form = DepositBalanceForm(request.POST)
@@ -58,6 +60,6 @@ def ProfileView(request):
 	else:
 		form = DepositBalanceForm()
 
-	return render(request, 'profile.html', {'form':form, 'profile':profile})
+	return render(request, 'profile.html', {'form':form, 'profile':profile, 'borrowed_books':borrowed_books})
 	
 	
