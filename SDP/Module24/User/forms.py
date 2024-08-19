@@ -17,5 +17,8 @@ class DepositBalanceForm(forms.ModelForm):
 	class Meta:
 		model = Profile
 		fields=['balance']
+		labels = {
+            'balance': 'Deposit Amount', 
+        }
 
 	

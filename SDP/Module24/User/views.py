@@ -58,6 +58,6 @@ def ProfileView(request):
 	else:
 		form = DepositBalanceForm()
 
-	return render(request, 'profile.html', {'form':form})
+	return render(request, 'profile.html', {'form':form, 'profile':profile})
 	
 	

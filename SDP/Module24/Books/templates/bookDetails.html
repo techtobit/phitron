@@ -22,7 +22,10 @@
 				<p class='pt-4'>{{object.description}}</p>
       </div>
 			<div class="d-grid gap-2 ">
-				<button class="btn btn-primary m-3 " type="button">Borrow Book</button>
+				<form method="post">
+					{% csrf_token %}
+					<button class="btn btn-primary m-3 " type="submit">Borrow Book</button>
+			</form>
 			</div>
     </div>
   </div>

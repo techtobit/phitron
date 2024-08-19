@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
 from django.views.generic import DetailView
 from .forms import AddBooksForm, AddCategoryForm, AddReviewsForm
-from .models import Books
+from .models import Books, BorrowedBooks
+from django.contrib import messages
 
 # Create your views here.
 
@@ -32,6 +33,23 @@ class BookDetialsView(DetailView):
 	template_name = 'bookDetails.html'
 	context_object_name = 'book'
 	pk_url_kwarg= 'id'
+
+	def post(self, request, *args, **kwargs):
+		book = self.get_object()
+		print(book)
+		profile = request.user.profile
+
+		if profile.balance >= book.price:
+			print(profile.balance ,book.price)
+			profile.balance -=book.price
+			profile.save()
+
+			BorrowedBooks.objects.create(user=request.user, book=book)
+			messages.success(request, f'You Have Successfully Borrowed {book.title}')
+			return redirect('profile')
+		else:
+			messages.success(request, f'You donot have enough balance')
+			return redirect('book-details', id=book.id)
 
 			
 class AddReviewView(FormView):
