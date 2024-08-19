@@ -13,4 +13,9 @@ class ProfileForm(forms.ModelForm):
 				model = Profile
 				fields = ("__all__")
 
+class DepositBalanceForm(forms.ModelForm):
+	class Meta:
+		model = Profile
+		fields=['balance']
+
 	

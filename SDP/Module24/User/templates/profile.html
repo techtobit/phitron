@@ -1,13 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Profile Page{% endblock title %}
+
 {% block content %}
+{% load crispy_forms_tags %}
 
+{% comment %} <p>{{ username }}</p>
+<p>{{ email }}</p>
+<p>{{ balance }}</p> {% endcomment %}
 
-<form method="post" >  
-	{% csrf_token %}  
-    <label for="">{{ request.user }}</label>
-    <label for="">{{ request.first_name }}</label>
-<form/>
-
-
-{% endblock content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit">Deposit</button>
+</form>
+{% endblock %}

@@ -6,6 +6,7 @@
 
 <form method="post" >  
 	{% csrf_token %}  
+	<label for="">{{context.email}}</label>
 	<table>  
 		{{form|crispy}}
 			<input type="submit" name="submit" value="Login" /></td>  
