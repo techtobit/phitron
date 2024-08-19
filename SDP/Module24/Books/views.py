@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.db.models import Avg
 from django.views.generic.edit import FormView
 from django.views.generic import DetailView
 from .forms import AddBooksForm, AddCategoryForm, AddReviewsForm
@@ -33,6 +34,13 @@ class BookDetialsView(DetailView):
 	template_name = 'bookDetails.html'
 	context_object_name = 'book'
 	pk_url_kwarg= 'id'
+	
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		book = self.get_object()
+		average_rating = book.review.aggregate(Avg('rate'))['rate__avg']
+		context['average_rating'] = average_rating if average_rating else 'No ratings yet'
+		return context
 
 	def post(self, request, *args, **kwargs):
 		book = self.get_object()
