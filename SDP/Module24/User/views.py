@@ -12,30 +12,41 @@ from Books.models import BorrowedBooks, Books
 from Books.forms import AddReviewsForm
 from django.contrib import messages
 
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 class RegistrationsView(CreateView):
 	form_class = RegistrationsForm
 	template_name = 'register.html'
-	success_url = reverse_lazy('add_book')
+	success_url = reverse_lazy('login')
 
 	def form_valid(self, form):
 		user = form.save()  
 		if user:
 			Profile.objects.get_or_create(user=user)
 			login(self.request, user)
+
+			# send mail 
+			subject = 'Welcome Massage',
+			nl='\n'
+			message = f"Dear {user.username} Welcome, {nl} Wish you very good day!. {nl} Regards, {nl} Ashraf Udddin"
+			email_from = settings.EMAIL_HOST_USER
+			recipient_list = [user.email, ]
+			send_mail( subject, message, email_from, recipient_list )
+
 		return super().form_valid(form)
 
 class LoginView(LoginView):
 	template_name = 'login.html'
 	def get_success_url(self):
-		return reverse_lazy('add_book')
+		return reverse_lazy('profile')
 
 class LogOutView(LogoutView):
 	def get_success_url(self):
 		if self.request.user.is_authenticated:
 			logout(self.request)
-		return reverse_lazy('register')
+		return reverse_lazy('login')
 
 
 def ProfileView(request):
@@ -51,6 +62,14 @@ def ProfileView(request):
 				profile.balance+=amount
 				print("profile.balance", profile.balance)
 				profile.save()
+
+				# sand mail 
+				subject = 'Transactions Message',
+				message = f'Dear {request.user.username}, You account has {amount} Debited'
+				email_from = settings.EMAIL_HOST_USER
+				recipient_list = [request.user.email, ]
+				send_mail( subject, message, email_from, recipient_list )
+
 				return redirect('profile')
 	else:
 		deposit_form= DepositBalanceForm()
@@ -66,6 +85,15 @@ def ProfileView(request):
 			profile.balance +=borrowed_book.book.price
 			profile.save()
 			borrowed_book.delete()
+
+			# send mail 
+			subject = 'Transactions Message',
+			nl='\n'
+			message = f"Dear {request.user.username}, {nl} Book '{borrowed_book.book.title}' is returned. {nl} Debited {borrowed_book.book.price} Total Balance is {profile.balance}"
+			email_from = settings.EMAIL_HOST_USER
+			recipient_list = [request.user.email, ]
+			send_mail( subject, message, email_from, recipient_list )
+
 			messages.success(request, f'You have successfully returned {borrowed_book.book.title}!')
 		return redirect('profile')
 
