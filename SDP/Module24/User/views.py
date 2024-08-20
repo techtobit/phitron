@@ -47,9 +47,11 @@ def ProfileView(request):
 		
 		if deposit_form.is_valid():
 				amount = deposit_form.cleaned_data['balance']
+				print("amount", amount)
 				profile.balance+=amount
+				print("profile.balance", profile.balance)
 				profile.save()
-				return redirect('add_book')
+				return redirect('profile')
 	else:
 		deposit_form= DepositBalanceForm()
 	

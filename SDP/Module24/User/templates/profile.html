@@ -28,7 +28,7 @@
                 <form method="POST" class='d-flex flex-column'>
                     {% csrf_token %}
                     {{deposit_form|crispy}}
-                    <button type="submit" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Deposit</button>
+                    <button type="submit" name='deposit_balance' data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Deposit</button>
                 </form>
                 
                 </div>
