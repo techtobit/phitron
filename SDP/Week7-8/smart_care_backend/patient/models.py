@@ -36,8 +36,12 @@ class Patient(models.Model):
 	gender=models.CharField(choices=GENDER, max_length=10)
 	address=models.CharField( max_length=12)
 
+	def __str__(self):
+			return f'{self.user} - {self.phone}'
+	
+
 class Review(models.Model):
-	reviewer=models.ForeignKey(Patient, related_name='paitent_review', on_delete=models.CASCADE)
+	reviewer=models.ForeignKey(Patient, on_delete=models.CASCADE)
 	doctor=models.ForeignKey(Doctor, related_name='doctor_review', on_delete=models.CASCADE)
 	rateing=models.CharField(choices=RATE, max_length=12)
 	text= models.TextField(max_length=50)

@@ -6,3 +6,7 @@ class Service(models.Model):
 	name=models.CharField( max_length=50)
 	discription=models.TextField(max_length=150)
 	imgae=models.ImageField( upload_to='service/media')
+
+	def __str__(self):
+			return f'{self.name} - {self.discription}'
+	
