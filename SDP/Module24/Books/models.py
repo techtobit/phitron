@@ -31,8 +31,8 @@ class BorrowedBooks(models.Model):
 
 class Reviews(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	book = models.ForeignKey(Books, related_name='review', on_delete=models.CASCADE)
-	rate = models.CharField(max_length=10, choices=REVIEW)
+	book = models.ForeignKey(Books, related_name='reviews', on_delete=models.CASCADE)
+	rate = models.CharField(max_length=10, choices=REVIEW, default=1)
 	body= models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 

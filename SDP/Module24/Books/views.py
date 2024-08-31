@@ -38,8 +38,11 @@ class BookDetialsView(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		book = self.get_object()
-		average_rating = book.review.aggregate(Avg('rate'))['rate__avg']
-		context['average_rating'] = average_rating if average_rating else 'No ratings yet'
+		# average_rating = book.reviews.aggregate(Avg('rate'))['rate__avg']
+		# average_rating = book.reviews.aggregate(average=Avg('rate'))['average']
+		average_rateing = book.reviews.aggregate(Avg('rate'))['rate__avg']
+		context['average_rating'] = average_rateing if average_rateing is not None else 'No ratings yet'
+		# print("average_rateing", context['average_rating'])
 		return context
 
 	def post(self, request, *args, **kwargs):

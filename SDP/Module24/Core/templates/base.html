@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="{% static '../../static/lmsLogo.ico' %}">
+	<link rel="shortcut icon" href="{% static 'lmsLogo.ico' %}">
 	{% load bootstrap5 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
@@ -15,7 +15,8 @@
 
 <body class="bg-green-50">
 	{% include "nav.html" %}
-	<div class="px-4 mt-4">
+	<div class="p4 m-4">
+		{% block title %}{% endblock %}
 			{% block content %}
 			{% endblock content %}
 	</div>

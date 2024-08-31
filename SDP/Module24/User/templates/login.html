@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}
+<h2 class='d-flex justify-content-center' >Login you accoung</h2>
+{% endblock %}
 
 {% block content %}
 {% load crispy_forms_tags %}
@@ -9,7 +11,7 @@
 	<label for="">{{context.email}}</label>
 	<table>  
 		{{form|crispy}}
-			<input type="submit" name="submit" value="Login" /></td>  
+		<button type="submit" class="btn btn-primary">Login</button>
 	</table>  
 </form>  
 {% endblock content %}
