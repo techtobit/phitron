@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'orders',
     'services',
-    'users'
+    'accounts'
 ]
 
 REST_FRAMEWORK = {
