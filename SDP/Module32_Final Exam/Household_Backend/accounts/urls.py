@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 router=DefaultRouter()
-router.register(r'buyer_profile', views.BuyerProfileViewSet, basename='buyer_profile')
+router.register('buyer_profile', views.BuyerProfileViewSet, basename='buyer_profile')
 router.register('seller_profile', views.SellerProfileViewSet, basename='seller_profile')
 
 urlpatterns = [

@@ -9,5 +9,14 @@ class ServiceAdmin(admin.ModelAdmin):
 			'price',
 			# 'created_on',
 		)
+
+class ReviewAdmin(admin.ModelAdmin):
+		list_display=(
+			'service',
+			'reating',
+			'body',
+			# 'created_on',
+		)
 admin.site.register(models.Service, ServiceAdmin)
+admin.site.register(models.Review, ReviewAdmin)
 
