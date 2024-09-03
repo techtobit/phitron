@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from . import models
 from accounts.models import SellerProfile
+
 class ServiceSerialzer(serializers.ModelSerializer):
 	class Meta:
 		model= models.Service
@@ -12,3 +13,9 @@ class ServiceSerialzer(serializers.ModelSerializer):
 				user=self.context['request'].user
 				seller_profile=SellerProfile.objects.filter(user=user)
 				self.fields['seller'].queryset=seller_profile
+
+
+class ReviewSerialzer(serializers.ModelSerializer):
+	class Meta:
+		model= models.Review
+		fields= '__all__'

@@ -22,3 +22,9 @@ class ServiceViewSet(viewsets.ModelViewSet):
 	# 	print('seller-', seller.user)
 	# 	serializer.save(seller=seller)
 	
+
+
+class ReviewViewSet(viewsets.ModelViewSet):
+	queryset=models.Review.objects.all()
+	serializer_class=serializers.ReviewSerialzer
+	permission_classes = [permissions.IsAuthenticated] 

@@ -7,3 +7,7 @@ from services.models import Service
 class Cart(models.Model):
 	customer=models.ForeignKey(User, on_delete=models.CASCADE)
 	service=models.ForeignKey(Service, on_delete=models.CASCADE)
+
+
+class Ordered(models.Model):
+	cart=models.ForeignKey(Cart, on_delete=models.CASCADE)
