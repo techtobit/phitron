@@ -22,10 +22,10 @@ class Service(models.Model):
 	category=models.CharField(max_length=50, choices=JOB_CATEGORY)
 	discription=models.TextField(max_length=200)
 	price=models.DecimalField( max_digits=5, decimal_places=2)
-	created_on=models.DateTimeField(auto_now_add=True)
+	# created_on=models.DateTimeField(auto_now_add=True)
 
 class Review(models.Model):
 	service=models.ForeignKey(Service,  on_delete=models.CASCADE)
 	reating=models.CharField(choices=RATEING, max_length=50)
 	body=models.TextField()
-	created_on=models.DateTimeField(auto_now_add=True)
+	# created_on=models.DateTimeField(auto_now_add=True)

@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from services.models import Service
-# from django.conf import settings
-# User = settings.AUTH_USER_MODEL
+
 
 class Cart(models.Model):
 	customer=models.ForeignKey(User, on_delete=models.CASCADE)
@@ -11,3 +10,5 @@ class Cart(models.Model):
 
 class Ordered(models.Model):
 	cart=models.ForeignKey(Cart, on_delete=models.CASCADE)
+	address=models.CharField( max_length=50)
+	# created_on=models.DateTimeField(auto_now_add=True)

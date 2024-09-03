@@ -7,7 +7,7 @@ class ServiceAdmin(admin.ModelAdmin):
 			'service_title',
 			'category',
 			'price',
-			'created_on',
+			# 'created_on',
 		)
 admin.site.register(models.Service, ServiceAdmin)
 
