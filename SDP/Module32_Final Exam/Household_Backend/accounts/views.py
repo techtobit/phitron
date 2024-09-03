@@ -3,6 +3,7 @@ from django.shortcuts import render
 from rest_framework import generics, viewsets 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from . import serializers
 from . import models
@@ -35,5 +36,15 @@ class SellerRegistrationApiView(APIView):
 
 
 class BuyerProfileViewSet(viewsets.ModelViewSet):
-	queryset= models.BuyerProfile.objects.all()
+	# queryset= models.BuyerProfile.objects.all()
 	serializer_class= serializers.BuyerProfileSerializer
+	permission_classes = [IsAuthenticated]
+	def get_queryset(self):
+		return models.BuyerProfile.objects.filter(seller=self.request.user)
+		
+	def perform_update(self, serializer):
+		serializer.save(user=self.request.user)
+
+class SellerProfileViewSet(viewsets.ModelViewSet):
+	queryset= models.SellerProfile.objects.all()
+	serializer_class= serializers.SellerProfileSerializer

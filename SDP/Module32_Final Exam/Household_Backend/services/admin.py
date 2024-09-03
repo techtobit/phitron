@@ -3,7 +3,8 @@ from. import models
 
 class ServiceAdmin(admin.ModelAdmin):
 		list_display=(
-			'name',
+			'seller',
+			'service_title',
 			'category',
 			'price',
 			'created_on',

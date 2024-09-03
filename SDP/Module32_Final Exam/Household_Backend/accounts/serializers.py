@@ -27,8 +27,28 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 
 class BuyerProfileSerializer(serializers.ModelSerializer):
+    user=RegistrationSerializer()
+    class Meta:
+        model = models.BuyerProfile
+        fields = ['user', 'phone']
+
+    def create(self, validated_data):
+        user_data = validated_data.pop('user')
+        user =RegistrationSerializer().create(validated_data=user_data)
+        
+        # Automatically set account_type
+        buyer_profile = models.BuyerProfile.objects.create(
+            user=user, 
+            account_type='buyer_account', 
+            **validated_data
+        )
+        
+        return buyer_profile
+
+
+class SellerProfileSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
 
     class Meta:
-        model = models.BuyerProfile
-        fields = ['user', 'phone',  'total_bought', 'total_spent']
+        model = models.SellerProfile
+        fields = ['user', 'service_category', 'phone',  'completed_jobs']
