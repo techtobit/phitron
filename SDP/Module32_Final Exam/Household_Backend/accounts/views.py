@@ -48,6 +48,13 @@ class BuyerProfileViewSet(viewsets.ModelViewSet):
 class SellerProfileViewSet(viewsets.ModelViewSet):
 	queryset= models.SellerProfile.objects.all()
 	serializer_class= serializers.SellerProfileSerializer
+	# finding user by name insdead of id 
+	def get_queryset(self):
+		queryset = models.SellerProfile.objects.all()
+		username = self.request.query_params.get('username', None)
+		if username is not None:
+			queryset = queryset.filter(user__username=username)
+			return queryset
 
 class AllUsersViewSet(viewsets.ModelViewSet):
 	queryset= User.objects.all()

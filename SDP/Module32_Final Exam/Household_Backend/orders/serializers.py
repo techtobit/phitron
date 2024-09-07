@@ -5,8 +5,10 @@ from services.serializers import ServiceSerialzer
 
 
 class CartSerializer(serializers.ModelSerializer):
-	# service= serializers.PrimaryKeyRelatedField(read_only=True)
-	# service=ServiceSerializer(read_only=True)
+	customer = serializers.SlugRelatedField(
+        slug_field='username',
+        queryset=models.User.objects.all()
+    )
 	class Meta:
 		model = models.Cart
 		fields='__all__'

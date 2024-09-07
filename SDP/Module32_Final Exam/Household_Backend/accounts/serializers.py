@@ -54,7 +54,7 @@ class BuyerProfileSerializer(serializers.ModelSerializer):
 
 
 class SellerProfileSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+    user= serializers.StringRelatedField(many=False)
 
     class Meta:
         model = models.SellerProfile

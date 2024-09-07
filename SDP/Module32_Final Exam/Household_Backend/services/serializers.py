@@ -4,8 +4,7 @@ from accounts.models import SellerProfile
 from django.contrib.auth.models import User
 
 class ServiceSerialzer(serializers.ModelSerializer):
-	# seller= serializers.SerializerMethodField()
-	
+
 	seller= serializers.StringRelatedField(many=False)
 	class Meta:
 		model= models.Service

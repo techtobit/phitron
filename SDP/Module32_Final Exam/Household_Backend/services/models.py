@@ -25,8 +25,6 @@ class Service(models.Model):
 	# created_on=models.DateTimeField(auto_now_add=True)
 
 
-	def __str__(self):
-			return self.seller.username
 
 class Review(models.Model):
 	service=models.ForeignKey(Service,  on_delete=models.CASCADE)
