@@ -25,11 +25,20 @@ const Registration: React.FC = () => {
 				},
 			})
 			console.log('response-', response.data);
+			const backendErrors = response.data;
+			Object.keys(backendErrors).forEach((fields)=> {
+				setError(fields as keyof RegistrationFromState, {
+					type:'server',
+					message: backendErrors[fields][0]
+				})
+			})
 
-		} catch (error:any) {
-			console.error('error-', error);
-		}
-	}
+
+		} catch (error: any) {
+					console.error('Error:', error.message);
+			}
+};
+
 
 	return (
 		<div>
@@ -38,49 +47,49 @@ const Registration: React.FC = () => {
 			<form onSubmit={ handleSubmit(onSubmit)}>
 				<div className="grid gap-6 mb-6 md:grid-cols-1">
 					<div>
-						<label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+						<label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username <span className='text-sm text-red-500'>*</span></label>
 						<input
 							id="username" type='text'
 							{...register('username', { required: 'Username is required' })}
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="jhone.dev11" 
 						/>
-						{errors.username && <p>{errors.username.message}</p>}
+						{errors.username && <p className='text-sm text-red-500'>{errors.username.message}</p>}
 					</div>
 					<div>
-						<label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+						<label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name <span className='text-sm text-red-500'>*</span></label>
 						<input
 							id="first_name" type='text'
 							{...register('first_name', { required: 'First Name is required' })}
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="David" 
 						/>
-						{errors.first_name && <p>{errors.first_name.message}</p>}
+						{errors.first_name && <p className='text-sm text-red-500'>{errors.first_name.message}</p>}
 					</div>
 					<div>
-						<label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+						<label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name <span className='text-sm text-red-500'>*</span></label>
 						<input
 							id="last_name" type='text'
 							{...register('last_name', { required: 'Last Name is required' })}
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Warner" 
 						/>
-						{errors.last_name && <p>{errors.last_name.message}</p>}
+						{errors.last_name && <p className='text-sm text-red-500'>{errors.last_name.message}</p>}
 					</div>
 					<div>
-						<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+						<label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email <span className='text-sm text-red-500'>*</span></label>
 						<input
 							id="email" type='email'
 							{...register('email', { required: 'Email is required' })}
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="david@gamil.com" 
 						/>
-						{errors.email && <p>{errors.email.message}</p>}
+						{errors.email && <p className='text-sm text-red-500'>{errors.email.message}</p>}
 					</div>
 					<div>
-						<label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+						<label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password <span className='text-sm text-red-500'>*</span></label>
 						<input
 							id="password" type='password'
 							{...register('password', { required: 'password is required' })}
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="8736a#5V" 
 						/>
-						{errors.password && <p>{errors.password.message}</p>}
+						{errors.password && <p className='text-sm text-red-500'>{errors.password.message}</p>}
 					</div>
 				</div>
 
