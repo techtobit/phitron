@@ -20,14 +20,11 @@ interface ServicesListState {
 
 const Services: React.FC = () => {
 	const [servicesList, setServicesList] = useState<ServicesListState[]>([])
-	const[serviceId, setServiceId]=useState<number|null>(null)
-
 	useEffect(() => {
 		const fetchServices = async () => {
 			try {
 				const response = await axios.get('http://127.0.0.1:8000/service/list/')
 				setServicesList(response.data)
-				console.log("response", response.data);
 			} catch (error) {
 				console.error(error)
 			}
@@ -35,7 +32,6 @@ const Services: React.FC = () => {
 		fetchServices()
 	}, [])
 
-	console.log('serviceID', serviceId);
 	
 
 	return (
@@ -48,32 +44,16 @@ const Services: React.FC = () => {
 						</a>
 						<div className="flex gap-10 mb-1 font-normal text-gray-700 dark:text-gray-400">
 								<p className="flex gap-2 items-center font-normal text-gray-700 dark:text-gray-400"><FaUser /> {service.seller}</p>
-								<p className="flex gap-2 items-center  font-normal text-gray-700 dark:text-gray-400"><ImPriceTags /> {service.category}</p>
-
-							{/* {
-								servicesSeller.filter(seller => seller.user === service.seller).map((seller, idx) => (
-									<>
-										<p>{seller.service_category}</p>
-										<p>{seller.completed_jobs}</p>
-										<p>{seller.phone}</p>
-									</>
-								))
-							} */}
+								<p className="flex gap-2 items-center font-normal text-gray-700 dark:text-gray-400"><ImPriceTags /> {service.category}</p>
 						</div>
 						<p className="flex  items-center mb-3 font-normal text-gray-700 dark:text-gray-400">Service Fee <IoLogoUsd /> {service.price}</p>
 						<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{service.discription}</p>
 						<Link to={`/services/${service.id}`} className=" flex gap-2 items-center inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 							Read more <FaAngleRight/>
 						</Link>
-						{/* <button onClick={()=>setServiceId(service.id)} className=" flex gap-2 items-center inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-							Read more <FaAngleRight/>
-						</button> */}
 					</div>
 				))
 			}
-		{/* {
-			serviceId && <ServiceDetials serviceId={serviceId}/>
-		} */}
 		</div>
 
 	)
