@@ -5,6 +5,7 @@ from . import views
 router=DefaultRouter()
 router.register('buyer_profile', views.BuyerProfileViewSet, basename='buyer_profile')
 router.register('seller_profile', views.SellerProfileViewSet, basename='seller_profile')
+router.register('users', views.AllUsersViewSet, basename='users')
 
 urlpatterns = [
 		path('', include(router.urls)),

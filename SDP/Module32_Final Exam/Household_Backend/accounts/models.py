@@ -23,3 +23,7 @@ class SellerProfile(models.Model):
 	account_type=models.CharField(default='seller_account', max_length=20)
 	service_category= models.CharField(choices=JOB_CATEGORY, max_length=50)
 	completed_jobs=models.IntegerField(blank=True, null=True,)
+
+	def __str__(self):
+			return self.user.username
+	

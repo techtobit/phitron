@@ -16,7 +16,7 @@ class BuyerRegistrationApiView(APIView):
 
 		if serializer.is_valid():
 			user=serializer.save()
-			prolfe=models.BuyerProfile.objects.create(user=user, account_type='buyer')
+			prolfe=models.BuyerProfile.objects.create(user=user)
 			prolfe.save()
 			return Response('Account Created')
 		return Response(serializer.errors)
@@ -29,7 +29,7 @@ class SellerRegistrationApiView(APIView):
 
 		if serializer.is_valid():
 			user=serializer.save()
-			prolfe=models.SellerProfile.objects.create(user=user, account_type='seller')
+			prolfe=models.SellerProfile.objects.create(user=user)
 			prolfe.save()
 			return Response('Account Created')
 		return Response(serializer.errors)
@@ -48,3 +48,7 @@ class BuyerProfileViewSet(viewsets.ModelViewSet):
 class SellerProfileViewSet(viewsets.ModelViewSet):
 	queryset= models.SellerProfile.objects.all()
 	serializer_class= serializers.SellerProfileSerializer
+
+class AllUsersViewSet(viewsets.ModelViewSet):
+	queryset= User.objects.all()
+	serializer_class= serializers.AllUsers

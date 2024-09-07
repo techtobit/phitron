@@ -25,6 +25,13 @@ class RegistrationSerializer(serializers.ModelSerializer):
         return account
 
 
+class AllUsers(serializers.ModelSerializer):
+    user = User.objects.all()
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
 
 class BuyerProfileSerializer(serializers.ModelSerializer):
     user=RegistrationSerializer()
@@ -52,3 +59,4 @@ class SellerProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.SellerProfile
         fields = ['user', 'service_category', 'phone',  'completed_jobs']
+

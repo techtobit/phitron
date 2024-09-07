@@ -9,11 +9,12 @@ from accounts.models import SellerProfile
 class ServiceViewSet(viewsets.ModelViewSet):
 	queryset=models.Service.objects.all()
 	serializer_class=serializers.ServiceSerialzer
-	permission_classes = [permissions.IsAuthenticated] 
+	permission_classes = [permissions.AllowAny] 
 	# def get_queryset(self):
 	# 	user=self.request.user
 	# 	seller=models.SellerProfile.objects.filter(user=user).first()
 	# 	if seller:
+	# 		new=models.Service.objects.filter(seller=seller)
 	# 		return models.Service.objects.filter(seller=seller)
 	# 	return models.Service.objects.none()
 
