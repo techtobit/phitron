@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 
 interface RegistrationFromState {
 	username: string,
@@ -13,10 +14,12 @@ interface RegistrationFromState {
 const Registration: React.FC = () => {
 
 	const{register,  handleSubmit, setError, formState:{errors}}=useForm<RegistrationFromState>()
-	
+	//takeing Registration Type from URL
+	const{registrationType}=useParams<{registrationType:string}>();
+
 	const onSubmit= async (data:RegistrationFromState)=>{
 		try {
-			const response= await axios.post('http://127.0.0.1:8000/auth/buyer_register/', data, {
+			const response= await axios.post(`http://127.0.0.1:8000/auth/${registrationType}/`, data, {
 				headers:{
 					"Content-Type": "application/json"
 				},
@@ -30,6 +33,8 @@ const Registration: React.FC = () => {
 
 	return (
 		<div>
+			<h1>{registrationType=== 'seller_register' ? 'Seller Registration' : 'Buyer Registration'}</h1>
+			
 			<form onSubmit={ handleSubmit(onSubmit)}>
 				<div className="grid gap-6 mb-6 md:grid-cols-1">
 					<div>
