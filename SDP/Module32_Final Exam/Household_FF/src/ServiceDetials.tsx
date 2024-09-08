@@ -67,7 +67,9 @@ const ServiceDetials: React.FC = () => {
 		// Adding userId and ServiceId into Cart Model 
 	const cartData= {
 		"customer": service?.seller,
-    "service":service?.id
+    "service":service?.id,
+		"category": service?.category,
+		"price": service?.price,
 	}
 
 		const addToCartService = async () => {
@@ -105,7 +107,7 @@ const ServiceDetials: React.FC = () => {
 					Add Cart <FaCartPlus/>
 				</button>
 				<Link to={`/services/cartList`} className=" flex gap-2 items-center ml-2 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-					Read more <RiShoppingBag4Fill />
+					Check Carts <RiShoppingBag4Fill />
 				</Link>
 			</div>
 
