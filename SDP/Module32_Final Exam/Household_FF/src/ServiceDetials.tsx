@@ -1,14 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import { FaUser } from "react-icons/fa6";
+import { FaUser, FaAngleRight } from "react-icons/fa6";
 import { IoLogoUsd } from "react-icons/io5";
 import { ImPriceTags } from "react-icons/im";
-import { FaAngleRight } from "react-icons/fa6";
-import { FaPhoneSquareAlt } from "react-icons/fa";
+import { FaPhoneSquareAlt, FaCartPlus } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import { BiTask } from "react-icons/bi";
-import { Button } from 'flowbite-react';
+import { RiShoppingBag4Fill } from "react-icons/ri";
+
 
 interface ServicesDetailsState {
 	id: number,
@@ -102,12 +102,13 @@ const ServiceDetials: React.FC = () => {
 				</div>
 				<p className="flex  items-center mb-3 font-normal text-gray-700 dark:text-gray-400">Service Fee <IoLogoUsd /> {service?.price} </p>
 				<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{service?.discription}</p>
-				{/* <Link to={`/services/`} className=" flex gap-2 items-center inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-					Read more <FaAngleRight />
-				</Link> */}
-				<Button onClick={addToCartService} className=" flex gap-2 items-center inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-					Read more <FaAngleRight />
-				</Button>
+
+				<button onClick={addToCartService} className=" flex gap-2 items-center inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+					Add Cart <FaCartPlus/>
+				</button>
+				<Link to={`/services/cartList`} className=" flex gap-2 items-center ml-2 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+					Read more <RiShoppingBag4Fill />
+				</Link>
 			</div>
 
 

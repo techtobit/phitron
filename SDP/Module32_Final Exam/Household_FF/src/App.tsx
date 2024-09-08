@@ -7,6 +7,7 @@ import Registration from './auth/Registration'
 import Profile from './auth/Profile'
 import ServicesList from './ServicesList'
 import ServiceDetials from './ServiceDetials'
+import CartList from './CartList'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/auth/profile/' element={<Profile/>}/>
           <Route path='services/' element={<ServicesList/>}/>
           <Route path='services/:id' element={<ServiceDetials/>}/>
+          <Route path='services/cartList/' element={<CartList/>}/>
         </Routes>
       </Router>
     </>
