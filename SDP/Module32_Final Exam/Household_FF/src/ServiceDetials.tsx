@@ -64,13 +64,11 @@ const ServiceDetials: React.FC = () => {
 
 
 
+		// Adding userId and ServiceId into Cart Model 
 	const cartData= {
 		"customer": service?.seller,
     "service":service?.id
 	}
-	console.log(cartData);
-	console.log(service);
-	
 
 		const addToCartService = async () => {
 			try {
