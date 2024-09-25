@@ -37,11 +37,16 @@ class AllUsers(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class UserRoleUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields=['is_staff', 'is_superuser']
+
 class BuyerProfileSerializer(serializers.ModelSerializer):
     user=RegistrationSerializer()
     class Meta:
         model = models.BuyerProfile
-        fields = ['user', 'phone']
+        fields = ['user', 'phone', 'account_type']
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')

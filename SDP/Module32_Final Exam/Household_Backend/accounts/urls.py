@@ -13,4 +13,5 @@ urlpatterns = [
 		path('buyer_register/', views.BuyerRegistrationApiView.as_view(), name='buyer_register'),
 		path('seller_register/', views.SellerRegistrationApiView.as_view(), name='seller_register'),
 		path('login/', views.UserLoginApiView.as_view(), name='seller_register'),
+		path('users/<int:user_id>/update_role/', views.UserRoleUpdateViewSet.as_view(), name='update_user_role'),
 ]

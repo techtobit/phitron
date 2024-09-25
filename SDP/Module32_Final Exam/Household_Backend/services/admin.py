@@ -1,13 +1,19 @@
 from django.contrib import admin
 from. import models
 
+
+
+class CategorieAdmin(admin.ModelAdmin):
+		# prepopulated_fields = {'slug': ('category',)}
+		list_display=(
+			'category',
+			'slug',
+		)
 class ServiceAdmin(admin.ModelAdmin):
 		list_display=(
 			'seller',
 			'service_title',
-			'category',
 			'price',
-			# 'created_on',
 		)
 
 class ReviewAdmin(admin.ModelAdmin):
@@ -17,6 +23,7 @@ class ReviewAdmin(admin.ModelAdmin):
 			'body',
 			# 'created_on',
 		)
+admin.site.register(models.Categorie, CategorieAdmin)
 admin.site.register(models.Service, ServiceAdmin)
 admin.site.register(models.Review, ReviewAdmin)
 

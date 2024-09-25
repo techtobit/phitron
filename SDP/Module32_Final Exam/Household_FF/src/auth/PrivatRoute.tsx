@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import AuthContex from './AuthProvider'
+import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
+import {useAppSelector } from '../redux/TypeHoock';
 
 const PrivatRoute:React.FC=()=> {
-	const{auth}:any = useContext(AuthContex)
-	console.log('auth', auth);
+
+	const authToken = useAppSelector((state) => state.auth.token)
 	
-	if(!auth) return <Navigate to='/auth/login/' replace />
+	if(!authToken) return <Navigate to='/user/login/' replace />
 
 	return (<Outlet/>)
 }

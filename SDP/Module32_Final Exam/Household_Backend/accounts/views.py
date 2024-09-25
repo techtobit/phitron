@@ -4,12 +4,14 @@ from rest_framework import generics, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework import permissions
+from rest_framework.authentication import TokenAuthentication
+from rest_framework import permissions,  status
 from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from . import serializers
 from . import models
+from .permissions import IsAdminUser 
 
 class BuyerRegistrationApiView(APIView):
 	serializer_class= serializers.RegistrationSerializer
@@ -60,7 +62,8 @@ class UserLoginApiView(APIView):
 class BuyerProfileViewSet(viewsets.ModelViewSet):
 	queryset= models.BuyerProfile.objects.all()
 	serializer_class= serializers.BuyerProfileSerializer
-	permission_classes = [IsAuthenticated]
+	permission_classes = [permissions.AllowAny] 
+	# permission_classes = [IsAuthenticated]
 	# def get_queryset(self):
 	# 	return models.BuyerProfile.objects.filter(seller=self.request.user)
 		
@@ -81,3 +84,36 @@ class SellerProfileViewSet(viewsets.ModelViewSet):
 class AllUsersViewSet(viewsets.ModelViewSet):
 	queryset= User.objects.all()
 	serializer_class= serializers.AllUsers
+
+
+class UserRoleUpdateViewSet(APIView):
+	# authentication_classes = [TokenAuthentication] 
+	# permission_classes = [ IsAuthenticated, IsAdminUser]  
+	def patch(self, request, user_id):
+		try:
+			user = User.objects.get(pk=user_id)
+		except User.DoesNotExist:
+			return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+			
+		serializer = serializers.UserRoleUpdateSerializer(user, data=request.data, partial=True)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data, status=status.HTTP_200_OK)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# class UserRoleUpdateViewSet(APIView):
+# 	permission_classes= [IsAdminUser]
+
+# 	def patch(self, request, user_id):
+# 		print('request-', request)
+# 		print('userid-', user_id)
+# 		try:
+# 			user = User.objects.get(pk=user_id)
+# 		except User.DoesNotExist:
+# 			return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+		
+# 		serializer= serializers.UserRoleUpdateSerializer(user, data=request.data, partial=True)
+# 		if serializer.is_valid():
+# 			serializer.save()
+# 			return Response(serializer.data, status=status.HTTP_200_OK)
+# 		return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)

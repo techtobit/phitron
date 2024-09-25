@@ -9,6 +9,9 @@ export default {
   },
   plugins: [
     flowbite.plugin(),
+    require('flowbite/plugin')({
+      charts: true,
+  }),
   ],
 }
 
