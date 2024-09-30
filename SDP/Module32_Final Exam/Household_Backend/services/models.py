@@ -28,6 +28,6 @@ class Service(models.Model):
 
 class Review(models.Model):
 	service=models.ForeignKey(Service,  on_delete=models.CASCADE)
-	reating=models.CharField(choices=RATEING, max_length=50)
+	rating=models.CharField(choices=RATEING, max_length=50)
 	body=models.TextField()
-	# created_on=models.DateTimeField(auto_now_add=True)
+	created_on=models.DateTimeField(auto_now_add=True)

@@ -16,5 +16,4 @@ class Cart(models.Model):
 
 class Ordered(models.Model):
 	cart=models.ForeignKey(Cart, on_delete=models.CASCADE)
-	address=models.CharField( max_length=50)
-	# created_on=models.DateTimeField(auto_now_add=True)
+	# address=models.CharField( max_length=50)

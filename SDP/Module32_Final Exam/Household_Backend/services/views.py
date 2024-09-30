@@ -28,4 +28,12 @@ class ServiceViewSet(viewsets.ModelViewSet):
 class ReviewViewSet(viewsets.ModelViewSet):
 	queryset=models.Review.objects.all()
 	serializer_class=serializers.ReviewSerialzer
-	permission_classes = [permissions.IsAuthenticated] 
+	permission_classes = [permissions.AllowAny]
+
+	def get_queryset(self):
+		queryset=models.Review.objects.all()
+		service_id=self.request.query_params.get('service', None)
+		if service_id is not None:
+			queryset=queryset.filter(service=service_id)
+			return queryset
+	

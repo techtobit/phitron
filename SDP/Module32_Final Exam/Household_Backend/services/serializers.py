@@ -22,6 +22,7 @@ class ServiceSerialzer(serializers.ModelSerializer):
 
 
 class ReviewSerialzer(serializers.ModelSerializer):
+	service = serializers.PrimaryKeyRelatedField(queryset=models.Service.objects.all())
 	class Meta:
 		model= models.Review
 		fields= '__all__'

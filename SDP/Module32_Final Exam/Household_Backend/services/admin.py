@@ -13,7 +13,7 @@ class ServiceAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
 		list_display=(
 			'service',
-			'reating',
+			'rating',
 			'body',
 			# 'created_on',
 		)

@@ -4,6 +4,9 @@ from rest_framework import generics, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import permissions
+from django.contrib.auth import authenticate, login
+from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from . import serializers
 from . import models
@@ -34,6 +37,25 @@ class SellerRegistrationApiView(APIView):
 			return Response('Account Created')
 		return Response(serializer.errors)
 
+
+class UserLoginApiView(APIView):
+    def post(self, request):
+        serializer = serializers.UserLoginSerializer(data = self.request.data)
+        if serializer.is_valid():
+            username = serializer.validated_data['username']
+            password = serializer.validated_data['password']
+
+            user = authenticate(username= username, password=password)
+            
+            if user:
+                token, _ = Token.objects.get_or_create(user=user)
+                print(token)
+                print(_)
+                login(request, user)
+                return Response({'token' : token.key, 'user_id' : user.id})
+            else:
+                return Response({'error' : "Invalid Credential"})
+        return Response(serializer.errors)
 
 class BuyerProfileViewSet(viewsets.ModelViewSet):
 	queryset= models.BuyerProfile.objects.all()

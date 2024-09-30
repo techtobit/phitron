@@ -10,7 +10,7 @@ class CartAdmin(admin.ModelAdmin):
 class OrderedAdmin(admin.ModelAdmin):
 		list_display=(
 			'cart',
-			'address'
+			# 'address'
 			)
 admin.site.register(Cart, CartAdmin)
 admin.site.register(Ordered,OrderedAdmin)
