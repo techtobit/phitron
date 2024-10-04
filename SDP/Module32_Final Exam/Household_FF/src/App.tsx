@@ -9,6 +9,7 @@ import ServicesList from './ServicesList'
 import ServiceDetials from './ServiceDetials'
 import CartList from './CartList'
 import LogIn from './auth/LogIn'
+import PrivatRoute from './auth/PrivatRoute'
 
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
         <Routes>
           <Route path="/auth/:registrationType/"  element={<Registration/>}/>
           <Route path="/auth/login/"  element={<LogIn/>}/>
-          <Route path='/auth/profile/' element={<Profile/>}/>
+          <Route element={<PrivatRoute/>}>
+            <Route path='/auth/profile/' element={<Profile/>}/>
+          </Route>
           <Route path='services/' element={<ServicesList/>}/>
           <Route path='services/:id' element={<ServiceDetials/>}/>
           <Route path='services/cartList/' element={<CartList/>}/>
