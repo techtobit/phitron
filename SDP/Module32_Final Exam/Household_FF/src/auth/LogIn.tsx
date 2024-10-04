@@ -1,14 +1,22 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
+import AuthContex from './AuthProvider';
+
 
 interface LogInFormState{
 	username: string,
 	password: string
 }
 
+interface FetchLoginData{
+	userId: string | number | null,
+	token: string
+}
+
 const  LogIn: React.FC= ()=> {
 	const { register, handleSubmit, setError, formState: { errors } } = useForm<LogInFormState>()
+	const {setAuth}:any = useContext(AuthContex)
 
 	const onSubmit= async (data: LogInFormState) =>{
 		try {
@@ -24,7 +32,9 @@ const  LogIn: React.FC= ()=> {
 			}
 			else{
 				console.log(response.data);
-				
+				const token = response?.data?.token;
+				const userId = response?.data?.user_id
+				setAuth({userId, token})
 			}
 		} catch (error) {
 			throw error;
