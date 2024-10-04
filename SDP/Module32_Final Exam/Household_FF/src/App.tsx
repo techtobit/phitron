@@ -8,6 +8,7 @@ import Profile from './auth/Profile'
 import ServicesList from './ServicesList'
 import ServiceDetials from './ServiceDetials'
 import CartList from './CartList'
+import LogIn from './auth/LogIn'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <NavBar />
         <Routes>
           <Route path="/auth/:registrationType/"  element={<Registration/>}/>
+          <Route path="/auth/login/"  element={<LogIn/>}/>
           <Route path='/auth/profile/' element={<Profile/>}/>
           <Route path='services/' element={<ServicesList/>}/>
           <Route path='services/:id' element={<ServiceDetials/>}/>
