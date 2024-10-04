@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react'
 
 const AuthContex= createContext({})
-export const AuthProvider: React.FC =({children}:any)=>  {
+export const AuthProvider =({children}:any)=>  {
 	const [auth, setAuth] = useState()
 	return (
 		<AuthContex.Provider value={{auth, setAuth}}>
@@ -9,3 +9,5 @@ export const AuthProvider: React.FC =({children}:any)=>  {
 		</AuthContex.Provider>
 	)
 }
+
+export default AuthContex;
